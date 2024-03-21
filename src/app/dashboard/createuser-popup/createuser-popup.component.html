@@ -1,0 +1,75 @@
+<div class="container" style="width: 60vw; height: 60vh;">
+  <form class="login" #registerForm="ngForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="name"
+             #name="ngModel"
+             [(ngModel)]="registerModel.name"
+             (focus)="emptyError('name_error')"
+             placeholder="Nombre completo / Apellido" />
+      <small id="name_error" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="phone"
+             #phone="ngModel"
+             [(ngModel)]="registerModel.phone"
+             (focus)="emptyError('phone_error')"
+             placeholder="Teléfono" />
+      <small id="phone_error" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="socialNumber"
+             #socialNumber="ngModel"
+             [(ngModel)]="registerModel.SocialNumber"
+             (focus)="emptyError('socialNumber_error')"
+             placeholder="Numero de Socio / a" />
+      <small id="socialNumber_error" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="email"
+             #email="ngModel"
+             [(ngModel)]="registerModel.email"
+             (focus)="emptyError('email_error')"
+             placeholder="Email" />
+      <small id="email_error" class="form-text text-danger"></small>
+    </div>
+    <!--<div class="form-group">
+      <input class="form-control" placeholder="Cuenta Externa" >
+    </div>-->
+    <div class="form-group">
+      <input type="password"
+             class="form-control mb-3"
+             name="password"
+             #password="ngModel"
+             [(ngModel)]="registerModel.password"
+             (focus)="emptyError('password_error')"
+             (blur)="emptyPattern()"
+             placeholder="Contraseña"
+             required />
+      <small id="password_pattern" class="form-text text-warning mt-1">
+        Por favor ingresa la contraseña en el siguiente formato: al menos 8 caracteres, con al menos un mayúscula, un minúscula, un número y un carácter especial!
+      </small>
+      <small id="password_error" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+      <input type="password"
+             class="form-control mb-3"
+             name="confirmPassword"
+             #confirmPassword="ngModel"
+             [(ngModel)]="registerModel.confirmPassword"
+             (focus)="emptyError('confirmPassword_error')"
+             placeholder="Confirmar Contraseña"
+             required />
+      <small id="confirmPassword_error" class="form-text text-danger"></small>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success">
+        <span class="button__text">Enviar</span>
+        <i class=" pl1 button__icon fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </form>
+</div>

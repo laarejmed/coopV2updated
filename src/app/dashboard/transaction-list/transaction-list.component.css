@@ -1,0 +1,69 @@
+.icons {
+  text-align: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  width: 100% !important;
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    width: 100% !important;
+  }
+
+  .dataTable-input {
+    width: 40% !important;
+  }
+
+
+}
+
+  .icons {
+    text-align: center;
+  }
+
+  .wraped {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .dataTable-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dataTable-bottom {
+    display: inline;
+  }
+
+  .dataTable-input {
+    width: auto;
+    display: inline;
+    line-height: normal;
+  }

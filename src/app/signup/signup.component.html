@@ -1,0 +1,156 @@
+<div class="topdiv">
+  <div class="container flex-wrap mx-auto">
+    <img src="assets/logoCoophalal.png" class="logo" />
+    <div class="screen">
+      <div class="screen__content">
+        <br />
+        <b>Registro de {{ this.role }}</b>
+        <strong id="user" class="form-text text-danger d-block"></strong>
+        <form class="login" #registerForm="ngForm" (submit)="onSubmit()">
+          <div class="login__field">
+            <input class="login__input"
+                   name="name"
+                   #name="ngModel"
+                   [(ngModel)]="this.registerModel.name"
+                   (focus)="emptyError('name_error')"
+                   placeholder="Nombre completo / Apellido" />
+            <strong id="name_error" class="form-text text-danger d-block">
+            </strong>
+          </div>
+          <div class="login__field">
+            <input class="login__input"
+                   name="phone"
+                   #phone="ngModel"
+                   [(ngModel)]="this.registerModel.phone"
+                   (focus)="emptyError('phone_error')"
+                   placeholder="Teléfono" />
+            <strong id="phone_error" class="form-text text-danger d-block">
+            </strong>
+          </div>
+          <div class="login__field">
+            <input class="login__input"
+                   name="socialNumber"
+                   #socialNumber="ngModel"
+                   [(ngModel)]="this.registerModel.SocialNumber"
+                   (focus)="emptyError('socialNumber_error')"
+                   placeholder="Numero de Socio / a" />
+            <strong id="socialNumber_error"
+                    class="form-text text-danger d-block">
+            </strong>
+          </div>
+          <div class="login__field">
+            <input class="login__input"
+                   name="email"
+                   #email="ngModel"
+                   [(ngModel)]="this.registerModel.email"
+                   (focus)="emptyError('email_error')"
+                   placeholder="Email" />
+            <strong id="email_error" class="form-text text-danger d-block">
+            </strong>
+          </div>
+          <!--<div class="login__field">
+            <input class="login__input" placeholder="Cuenta Externa" >
+          </div>-->
+          <div class="login__field">
+            <input type="password"
+                   class="login__input"
+                   name="password"
+                   #password="ngModel"
+                   [(ngModel)]="this.registerModel.password"
+                   (focus)="emptyError('password_error')"
+                   (blur)="emptyPattern()"
+                   placeholder="Contrasena"
+                   required />
+            <strong id="password_pattern" class="form-text text-warning mt-1">
+              Por favor ingresa la contraseña en el siguiente formato : al menos 8 caracteres, con al menos un majuscle, un minúsculo, un número y un personaje especial!
+            </strong>
+            <strong id="password_error" class="form-text text-danger d-block">
+            </strong>
+          </div>
+          <div class="login__field">
+            <input type="password"
+                   class="login__input"
+                   name="confirmPassword"
+                   #confirmPAssword="ngModel"
+                   [(ngModel)]="this.registerModel.confirmPassword"
+                   (focus)="emptyError('confirmPassword_error')"
+                   placeholder="Confirmar Contrasena"
+                   required />
+            <strong id="confirmPassword_error"
+                    class="form-text text-danger d-block">
+            </strong>
+          </div>
+          <button type="submit" class="button login__submit">
+            <span class="button__text">Enviar</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>
+        </form>
+        <div class="social-login">
+          <h3></h3>
+          <div class="social-icons">
+            <a routerLink="/login" class="text-white">Iniciar sesión</a>
+          </div>
+        </div>
+      </div>
+      <div class="screen__background">
+        <span class="screen__background__shape screen__background__shape4"></span>
+        <span class="screen__background__shape screen__background__shape3"></span>
+        <span class="screen__background__shape screen__background__shape2"></span>
+        <span class="screen__background__shape screen__background__shape1"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="py-4 bg-light  text-center text-lg-start" style="margin-top:60px;">
+
+
+
+  <!-- Section: Social media -->
+  <section class="d-flex  justify-content-center justify-content-lg-between p-4 border-bottom" style="height:14vh">
+    <!-- Left --> <div class="d-flex align-items-center">
+      <img src="../../assets/CoopHalal icon 2.png" style="height: 100%" />
+      <div class="text-uppercase" style="font-weight: 600;">CoopHalal</div>
+    </div>
+
+    <!-- Left -->
+    <div class="d-flex align-items-center">
+      <a href="https://www.coophalal.eu/aviso-legal/" class="me-4 text-reset" style="text-decoration: none;">Aviso Legal</a>
+      <a href="https://www.coophalal.eu/politica-de-privacidad/" class="me-4 text-reset" style="text-decoration: none;">Política de privacidad</a>
+    </div>
+    <!-- Right -->
+    <div class="d-flex align-items-center d-none d-sm-block">
+      <a href="https://www.facebook.com/coophalal" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/halalcoop" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.youtube.com/@CoopHalal" class="me-4 text-reset">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <!-- New section for inline links -->
+      <!-- End of new section for inline links -->
+      <a href="https://www.instagram.com/coophalal/" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/coophalal-espa%C3%B1a-434322229" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+
+    </div>
+    <!-- Right -->
+  </section>
+
+  <!-- Section: Social media -->
+  <!-- Section: Links  -->
+  <!-- Copyright -->
+  <div class="text-center p-4 " style="background-color: rgba(0, 0, 0, 0.05); margin-bottom:-15px;margin-top:0">
+    Diseñado por
+    <a class="text-reset fw-bold" style="text-decoration: none;" href="http://Seomaniak.com">Seomaniak</a>
+  </div>
+  <!-- Copyright -->
+
+
+
+</footer>

@@ -1,0 +1,122 @@
+<main id="main-container" style="width: calc(100vw - 245px);">
+  <div class="container-fluid px-4">
+    <h1 class="mt-4">Usuarios</h1>
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item active">Usuario</li>
+    </ol>
+    <a routerLink="/signup" style="margin-bottom:30px" class="btn btn-success">
+      Agregar una usuario
+    </a>
+    <button (click)="openDialogUser()" style="margin-bottom:30px; margin-left:20px;" class=" btn btn-success">
+      Usuario sin validación
+
+    </button>
+    <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-table me-1"></i>
+          Listas de Usuarios
+        </div>
+        <div class="card-body">
+
+          <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+            <div class="dataTable-top">
+              <div class="dataTable-dropdown pt-2 d-none">
+                <button class="border-0 bg-transparent align-middle" (click)="validateAll()">
+                  <i class="fa-regular fa-circle-check" style="color: green; font-size: 20px; font-weight: 500; margin: 0 10px;"></i>
+                </button>
+                <button class="border-0 bg-transparent align-middle" (click)="rejectAll()">
+                  <i class="fa-regular fa-circle-xmark" style=" margin: 0 10px; font-size: 20px; font-weight: 500; color: chocolate"></i>
+                </button>
+                <button class="border-0 bg-transparent align-middle" (click)="deleteAll()">
+                  <i class="fa-regular fa-trash-can" style="margin: 0 10px; font-size: 20px; font-weight: 500; color: red"></i>
+                </button>
+              </div>
+              <div class="dataTable-search"><input class="dataTable-input" (keyup)="searchItem($event)" placeholder="Búsqueda..." type="text"></div>
+              <!--add import users-->
+              <div class="dataTable-bottom">
+                <nav class="dataTable-pagination">
+                  <ul class="dataTable-pagination-list">
+
+                    <li class="">
+                      <a class="option-button" (click)="exportToExcel()">Exceller</a>
+                    </li>
+                    <li class="">
+                      <a class="option-button" (click)="exportToPDF()">PDF</a>
+                    </li>
+                    <li class="">
+                      <a class="option-button" (click)="exportToCSV()">CSV</a>
+                    </li>
+                    <li class="">
+                      <a class="option-button" (click)="refresh()"><i class="fa fa-refresh" aria-hidden="true"></i> Actualizar</a>
+                    </li>
+
+
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="dataTable-container">
+            <table id="datatablesSimple" class="dataTable-table">
+              <thead>
+                <tr>
+                  <th><input class="input-check-all" (change)="selectAll($event)" type="checkbox"></th>
+                  <th class="text-capitalize">Nombre</th>
+                  <th class="text-capitalize">Correo electrónico</th>
+                  <th class="text-capitalize">Número de Socio</th>
+                  <th class="text-capitalize">Estado</th>
+                  <th class="text-capitalize">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of userItems.items">
+                  <td><input (change)="setUser(user.cif, $event)" class="items" type="checkbox" value="{{user.cif}}" /></td>
+                  <td>{{user.name}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.socialNumber}}</td>
+                  <td [innerHTML]="this.status[user.status]"></td>
+                  <td class="icons d-flex justify-content-center">
+                    <button class="border-0 bg-transparent align-middle" (click)="validateUser(user.cif)" *ngIf="user.status != 1">
+                      <i class="fa-regular fa-circle-check" style="color: green; font-size: 20px; font-weight: 500; margin: 0;"></i>
+                    </button>
+                    <button class="border-0 bg-transparent align-middle" (click)="rejectUser(user.cif)" *ngIf="user.status != 2">
+                      <i class="fa-regular fa-circle-xmark" style=" margin: 0; font-size: 20px; font-weight: 500; color: chocolate"></i>
+                    </button>
+                    <button class="border-0 bg-transparent align-middle" (click)="deleteUser(user.cif)">
+                      <i class="fa-regular fa-trash-can" style="margin: 0; font-size: 20px; font-weight: 500; color: red"></i>
+                    </button>
+
+                    <button class="border-0 bg-transparent align-middle" (click)="openDialog(user.cif)">
+                      <i class=" fa-regular fa-edit	" style="margin: 0; font-size: 20px; font-weight: 500; color: black"></i>
+                    </button>
+                    <button class="border-0 bg-transparent align-middle" (click)="goToAccount(user.cif)">
+                      <i class=" fa-regular fa-user	" style="margin: 0; font-size: 20px; font-weight: 500; color: black"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dataTable-bottom">
+            <nav class="dataTable-pagination">
+              <ul class="dataTable-pagination-list">
+                <li class="pagination-items">
+                  <a style="cursor: pointer;" (click)="getItems(currentPage - 1)">Previa</a>
+                </li>
+                <li *ngFor="let i of getDisplayedPageNumbers()" class="pagination-items">
+                  <a style="cursor: pointer;" (click)="getItems(i)">{{i+1}}</a>
+                </li>
+                <li class="pagination-items">
+                  <a style="cursor: pointer;" (click)="getItems(currentPage + 1)">Próxima</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

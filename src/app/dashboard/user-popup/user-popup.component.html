@@ -1,0 +1,38 @@
+<div class="container" style="width: 80vh;height:60vh;">
+  <form (submit)="onSubmit()">
+    <!-- Name input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="name">Apellido</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="this.userInfo.name" />
+
+    </div>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="socio">Numero Socio</label>
+      <input type="email" id="socio" class="form-control " [(ngModel)]="this.userInfo.socialnumber" />
+
+    </div>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="email">Email </label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="this.userInfo.email" />
+
+    </div>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="phone">Teléfono</label>
+      <input type="email" id="phone" class="form-control" [(ngModel)]="this.userInfo.phone" />
+
+    </div>
+
+    <div class="form-outline mb-4">
+      <label class="form-label" for="balance">Saldo</label>
+      <input type="email" id="balance" class="form-control" [(ngModel)]="this.userInfo.balance" />
+
+    </div>
+
+
+
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-success btn-block mb-4">Save</button>
+  </form>
+  </div>

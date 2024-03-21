@@ -1,0 +1,142 @@
+<nav class="sb-topnav navbar navbar-expand-sm navbar-dark bg-dark">
+  <!-- Navbar Brand-->
+  <a class="navbar-brand ps-3" href="index.html">
+  <img src="../../assets/CoopHalalicon.png" width="100px" /></a>
+  <!-- Sidebar Toggle-->
+  <button
+    class="btn btn-link btn-sm order-1 order-lg-0 me-lg-0"
+    id="sidebarToggle"
+    (click)="toggleSideBar()"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div style="margin: auto" *ngIf="this.isAdmin()">
+    <a class="switch-items">
+      <div class="button">
+        <input
+          type="checkbox"
+          class="switch-toggle"
+         [checked]="isChecked"
+          (change)="switchAccount($event)"
+        />
+        <div class="knobs">
+          <span></span>
+        </div>
+        <div class="layer"></div>
+      </div>
+    </a>
+  </div>
+  <!-- Navbar Search-->
+  <!--<form
+    class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+  >
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Buscar..."
+        aria-label="Search for..."
+        aria-describedby="btnNavbarSearch"
+      />
+      <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </form>-->
+  <!-- Navbar-->
+  <div class="d-flex justify-content-center align-items-center" style="margin-left: auto !important">
+    <ul class="notifications mb-0 p-0" style="margin-right: 10px;" *ngIf="this.isAdmin()">
+      <li class="messages">
+        <div class="messages-header">
+          <button (click)="showMsg()"><i class="fa-solid fa-bell"></i></button>
+
+          <span class="messages-num"
+                *ngIf="this.userService.progressNumber > 0 || this.requestService.progressNumber > 0 || this.inProgressTransactions > 0"
+                [innerText]="this.userService.progressNumber + this.inProgressTransactions + this.requestService.progressNumber"></span>
+
+          <!--<ng-tempate #request>
+            <span class="messages-num"
+                  [innerText]="this.requestService.progressNumber + this.userService.progressNumber+this.inProgressTransactions"></span>
+          </ng-tempate>-->
+        </div>
+        <div class="messages-content">
+          <div class="content-header">
+            <strong>Notificaciones</strong>
+          </div>
+          <div class="message-items">
+            <div class="message-item" *ngIf="this.userService.progressNumber > 0 ">
+              <div class="user-img d-flex justify-content-center align-items-center text-white font-weight-bold"
+                   [innerText]="this.userService.progressNumber"></div>
+              <div class="user-message">
+                <a routerLink="/dashboard/users" (click)="removeShow('users')" class="text-decoration-none text-info">
+                  <p class="mb-0">Se han registrado nuevos usuarios</p>
+                </a>
+              </div>
+            </div><div class="message-item" *ngIf="this.requestService.progressNumber > 0 ">
+              <div class="user-img d-flex justify-content-center align-items-center text-white font-weight-bold"
+                   [innerText]="this.requestService.progressNumber"></div>
+              <div class="user-message">
+                <a  routerLink="/dashboard/requests" (click)="removeShow('requests')" class="text-decoration-none text-info">
+                  <p class="mb-0">Peticiones pendientes</p>
+                </a>
+              </div>
+            </div>
+            <div class="message-item" *ngIf="this.inProgressTransactions > 0 ">
+              <div class="user-img d-flex justify-content-center align-items-center text-white font-weight-bold"
+                   [innerText]="this.inProgressTransactions"></div>
+              <div class="user-message">
+                <a  routerLink="/dashboard/transaction" (click)="removeShow('transactions')" class="text-decoration-none text-info">
+                  <p class="mb-0">Transacciones en curso</p>
+                </a>
+              </div>
+            </div>
+
+            <div class="message-item"
+                 *ngIf="this.userService.progressNumber <= 0 && this.requestService.progressNumber <= 0 && this.inProgressTransactions <= 0">
+              <div class="no-notifications">
+                No hay notificación por el momento
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto ms-md-0 me-lg-4">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="navbarDropdown"
+          (click)="toggleMenu()"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        ><i class="fas fa-user fa-fw"></i
+        ></a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdown"
+        >
+          <li>
+            <a
+              class="dropdown-item"
+              routerLink="/dashboard/profile"
+              (click)="setActiveClass($event)"
+            ><i class="fa-solid fa-user"></i
+            ><span style="margin-left: 8px">Perfil</span></a
+            >
+          </li>
+          <li>
+            <hr class="dropdown-divider"/>
+          </li>
+          <li>
+            <button class="dropdown-item" (click)="logout()">
+              Cerrar sesión
+            </button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

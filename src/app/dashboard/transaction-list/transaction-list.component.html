@@ -1,0 +1,326 @@
+<main style="width: calc(100vw - 245px)">
+  <div class="container-fluid px-4">
+    <h1 class="mt-4">Transacciones</h1>
+    <div class="card card-custom gutter-b" style="margin-bottom:20px;">
+      <div class="card-body">
+        <div class="" style="margin-top:5px"><h5 style="font-size: 2em">{{user.name}}</h5></div>
+        <div class="d-flex flex-wrap flex-row ">
+          <div class="p-2"> <i class="fa fa-envelope"></i> {{user.email}}</div>
+          <div class="p-2"><i class="fa fa-phone"></i> {{user.phone}}</div>
+          <div class="p-2"><i class="fa fa-user"></i>  {{user.socialNumber}}</div>
+        </div>
+        <!--begin::Details-->
+        <div class="container" style="margin-bottom:40px;margin-top:40px;">
+          <div class="row align-items-center" style="margin-top:20px;">
+            <div class="col-sm-4 d-flex justify-content-center">
+              <!-- <i class="fa-solid fa-money-bill" style="font-size: 1.5em;"></i> -->
+              <i class="fa-regular fa-credit-card" style="font-size: 1.5em;"></i>
+              <span style="font-size: 1.5em; font-weight: bold; margin-left: 10px;">{{this.userBalance | currency: "EUR"}}</span>
+            </div>
+            <div class="col-sm-4 d-flex justify-content-center">
+              <i class="fa fa-exchange" style="font-size: 1.5em;"></i>
+
+              <span style="font-size: 1.5em; font-weight: bold; margin-left: 10px;">{{totaltransactions}} Movimientos</span>
+            </div>
+            <div class="col-sm-4 d-flex justify-content-center">
+              <i class="fa fa-comments" style="font-size: 1.5em;"></i>
+
+              <span style="font-size: 1.5em; font-weight: bold; margin-left: 10px;">{{totalrequests}} Peticiones</span>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item"><a href="index.html">Tablero</a></li>
+      <li class="breadcrumb-item active">Actas</li>
+    </ol>
+    <button style="margin-bottom: 30px"
+            type="button"
+            class="btn btn-success"
+            (click)="addTransaction()">
+      Agregar una transacción
+    </button>
+
+    <div class="card mb-4  "  >
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Listas de Transacciones
+      </div>
+      <div class="card-body">
+        <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+          <div class="dataTable-top">
+            <div *ngIf="hasAdminRole && !switchBtn"><button (click)="resetsolde(this.user.cif)">Actualizar</button></div>
+            
+            <div class="dataTable-dropdown pt-2 d-none"
+                 *ngIf="isConnected && hasAdminRole && switchBtn">
+              <button (click)="validateAllTransactions(this.listTransaction)"
+                      class="border-0 bg-transparent align-middle">
+                <i class="fa-regular fa-circle-check"
+                   style="
+                    color: green;
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin: 0 10px;
+                  "></i>
+              </button>
+              <button (click)="rejectAllTransactions(this.listTransaction)"
+                      class="border-0 bg-transparent align-middle">
+                <i class="fa-regular fa-circle-xmark"
+                   style="
+                    margin: 0 10px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: chocolate;
+                  "></i>
+              </button>
+              <button (click)="removeAllTransactions(this.listTransaction)"
+                      class="border-0 bg-transparent align-middle">
+                <i class="fa-regular fa-trash-can"
+                   style="
+                    margin: 0 10px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: red;
+                  "></i>
+              </button>
+
+            </div>
+            <div class="dataTable-search" *ngIf="isConnected && hasAdminRole && switchBtn">
+              <input #searchTransaction
+                     class="dataTable-input"
+                     placeholder="Búsqueda..."
+                     type="search"
+                     id="transactionSearch"
+                     (keyup)="handleTransactionSearch(searchTransaction.value)" />
+
+              <div class="dataTable-bottom">
+                <nav class="dataTable-pagination">
+                  <ul class="dataTable-pagination-list">
+
+                    <li class="">
+                      <a class="option-button" (click)="exportToExcel()">Exceller</a>
+                    </li>
+                    <li class="">
+                      <a class="option-button" (click)="exportToPDF()">PDF</a>
+                    </li>
+                    <li class="">
+                      <a class="option-button" (click)="exportToCSV()">CSV</a>
+                    </li>
+                    <li class="">
+                      <a class="option-button" (click)="loadTransactionsByRole()"><i class="fa fa-refresh" aria-hidden="true"></i> Actualizar</a>
+                    </li>
+
+                  </ul>
+                </nav>
+              </div>
+              <div class="grid">
+                <div *ngIf="isConnected && hasAdminRole && switchBtn"
+                     class="d-xl-none d-md-none d-lg-none  my-3" role="group"
+                     aria-label="Basic example">
+                  <button type="button" class="btn btn-outline-info" (click)="getAllTransactionsByStatus('0')">
+                    Progreso
+                  </button>
+                  <button type="button" class="btn btn-outline-success" (click)="getAllTransactionsByStatus('1')">
+                    Aprobada
+                  </button>
+                  <button type="button" class="btn btn-outline-danger" (click)="getAllTransactionsByStatus('2')">
+                    Rechazada
+                  </button>
+                  <button type="button" class="btn btn-outline-secondary" (click)="getTransactions()">
+                    Todos
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="dataTable-container">
+            <table id="datatablesSimple" class="dataTable-table">
+              <thead>
+                <tr>
+                  <th *ngIf="isConnected && hasAdminRole && switchBtn">
+                    <input type="checkbox" (change)="selectAll($event)" />
+                  </th>
+                  <th>Fecha</th>
+
+                  <th>Concepto</th>
+                  <th>Cuenta de Origen</th>
+                  <th>Cuenta de Destino</th>
+                  <th>Importe</th>
+                  <th *ngIf="(switchBtn && !hasAdminRole) || !switchBtn">Saldo</th>
+                  <th *ngIf="isConnected && hasAdminRole && switchBtn;else normalStatus">
+                    <select #filter (change)="getAllTransactionsByStatus(filter.value)"
+                            class="d-none d-md-block d-xl-block d-lg-block  form-select form-select-sm">
+                      <option selected value="3">Todos</option>
+                      <option value="0">Progreso</option>
+                      <option value="1">Aprobada</option>
+                      <option value="2">Rechazada</option>
+                    </select>
+                    <span class="d-md-none d-lg-none d-xl-none">Estado</span>
+
+                  </th>
+                  <ng-template #normalStatus>
+                    <th>Estado</th>
+                  </ng-template>
+
+                  <th *ngIf="isConnected && hasAdminRole && switchBtn"
+                      data-sortable="">
+                    Acción
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let transaction of transactions">
+                  <td *ngIf="isConnected && hasAdminRole && switchBtn">
+                    <input (change)="setTransaction(transaction.id, $event)"
+                           value="{{transaction.id}}"
+                           class="items"
+                           type="checkbox"
+                           value="1" />
+                  </td>
+
+
+                  <td>
+                    {{ transaction.dateTransaction | date:"dd/MM/yyyy"}}
+                  </td>
+
+                  <td>{{ transaction.motif }}</td>
+                  <td>
+                    {{ transaction.senderBankAccount?.user.name }}
+                    {{ transaction.senderBankAccountString }}
+                  </td>
+                  <td>
+                    {{ transaction.receiverBankAccount?.user.name }}
+                    {{transaction.receiverBankAccountString}}
+                  </td>
+                  <td style="color: red" *ngIf="transaction.senderBankAccountId==userBankAccountId && (switchBtn && !hasAdminRole || !switchBtn)
+       else greentemp">
+                    -{{transaction.amount}} €
+                  </td>
+                  <ng-template #greentemp>
+                    <td *ngIf=" (switchBtn && !hasAdminRole) || !switchBtn
+                        else defaulttemp" style="color: green">
+                      +{{transaction.amount}} €
+                    </td>
+                  </ng-template>
+                  <ng-template #defaulttemp>
+                    <td>
+                      {{transaction.amount}} €
+                    </td>
+                  </ng-template>
+                  <td *ngIf="transaction.senderBankAccountId==userBankAccountId && (switchBtn && !hasAdminRole || !switchBtn)
+       else receiver">
+                    {{transaction.soldeSender}} €
+                  </td>
+                  <ng-template #receiver>
+                    <td *ngIf="(switchBtn && !hasAdminRole) || !switchBtn">
+                      {{transaction.soldeReceiver}} €
+                    </td>
+                  </ng-template>
+                  <td [style.color]="statusColor(transaction.status)">
+                    {{ statusCasting(transaction.status) }}
+                  </td>
+                  <td *ngIf="isConnected && hasAdminRole && switchBtn"
+                      class="icons">
+                    <button *ngIf="transaction.status!=1 && transaction.status!=2"
+                            (click)="validateTransaction(transaction.id)"
+                            class="border-0 bg-transparent align-middle">
+                      <i class="fa-regular fa-circle-check"
+                         style="
+                          color: green;
+                          font-size: 20px;
+                          font-weight: 500;
+                          margin: 0 10px;
+                        "></i>
+                    </button>
+                    <button *ngIf="transaction.status!=1 && transaction.status!=2"
+                            (click)="rejectTransaction(transaction.id)"
+                            class="border-0 bg-transparent align-middle">
+                      <i class="fa-regular fa-circle-xmark"
+                         style="
+                          margin: 0 10px;
+                          font-size: 20px;
+                          font-weight: 500;
+                          color: chocolate;
+                        "></i>
+                    </button>
+                    <button (click)="removeTransaction(transaction.id)"
+                            class="border-0 bg-transparent align-middle">
+                      <i class="fa-regular fa-trash-can"
+                         style="
+                          margin: 0 10px;
+                          font-size: 20px;
+                          font-weight: 500;
+                          color: red;
+                        "></i>
+                    </button>
+                    <button (click)="open(content)"
+                            class="border-0 bg-transparent align-middle">
+                      <i class="fa fa-info-circle"
+                         style="
+                          margin: 0 10px;
+                          font-size: 20px;
+                          font-weight: 500;
+                          color: lightskyblue;
+                        "></i>
+                    </button>
+                    <ng-template #content let-modal>
+                      <div class="modal-header">
+                        <h2 class="modal-title" id="modal-basic-title">Información de la transacción</h2>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+                      </div>
+                      <div class="modal-body">
+                        <h3 class="text-black">Monto :<small class="text-danger">{{transaction.amount}}</small></h3>
+                        <h3 class="text-black">Fetcha :<small> {{ transaction.dateTransaction | date:"dd/MM/yyyy"}}</small></h3>
+                        <h3 class="text-black">Concepto :<small>{{transaction.motif}}</small></h3>
+                        <h3 class="text-black">
+                          Cueta orginal : <small>{{transaction.senderBankAccount.user.name}}</small>
+                        </h3>
+                        <h3 class="text-black">
+                          Cúmero de cuenta bancaria del remitente :
+                          <small>{{transaction.senderBankAccount.accountNumber}}</small>
+                        </h3>
+                        <h3 class="text-black">
+                          Cuenta destino :
+                          <small> {{transaction.receiverBankAccount.user.name}}</small>
+                        </h3>
+                        <h3 class="text-black">
+                          Número de cuenta bancaria del receptor :
+                          <small> {{transaction.receiverBankAccount.accountNumber}}</small>
+                        </h3>
+                        <h3 class="text-black">
+                          Estado : <small [style.color]="statusColor(transaction.status)"> {{statusCasting(transaction.status)}}</small>
+                        </h3>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cerrar</button>
+                      </div>
+                    </ng-template>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <ngb-pagination [(page)]="pageNumber"
+                          [pageSize]="pageSize"
+                          [collectionSize]="totalElements"
+                          [maxSize]="5"
+                          [boundaryLinks]="true"
+                          (pageChange)="loadTransactionsByRole()">
+          </ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

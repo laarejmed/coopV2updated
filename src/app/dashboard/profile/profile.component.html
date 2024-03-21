@@ -1,0 +1,217 @@
+<main style="width: calc(100vw - 245px)">
+  <div class="container-fluid px-4">
+    <h1 class="mt-4">Perfil</h1>
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item">Tablero</li>
+      <li class="breadcrumb-item active">perfil</li>
+    </ol>
+    <div class="card mb-4">
+      <div class="card-header p-0">
+        <ul class="nav nav-tabs sidebar" id="myTab" role="tablist" style="display: flex; justify-content: center;">
+          <li *ngIf="hasAdminRole" class="nav-item tabs-items">
+            <a class="nav-link py-3"
+               [class.profile-active]="selectedButton === 'user'"
+               id="user-tab"
+               data-toggle="tab"
+               role="tab"
+               aria-controls="user"
+               aria-selected="true"
+               (click)="onSelected('user')">Usuario</a>
+          </li>
+          <li *ngIf="hasAdminRole" class="nav-item tabs-items">
+            <a class="nav-link py-3"
+               [class.profile-active]="selectedButton === 'email'"
+               id="email-tab"
+               data-toggle="tab"
+               role="tab"
+               aria-controls="email"
+               aria-selected="false"
+               (click)="onSelected('email')">Correo electrónico</a>
+          </li>
+          <li class="nav-item tabs-items">
+            <a class="nav-link py-3"
+               [class.profile-active]="selectedButton === 'password'"
+               id="password-tab"
+               data-toggle="tab"
+               role="tab"
+               aria-controls="password"
+               aria-selected="false"
+               (click)="onSelected('password')">contraseña</a>
+          </li>
+          <li class="nav-item tabs-items">
+            <a class="nav-link py-3"
+               [class.profile-active]="selectedButton === 'bank'"
+               id="bank-tab"
+               data-toggle="tab"
+               role="tab"
+               aria-controls="bank"
+               aria-selected="false"
+               (click)="onSelected('bank')">Cuenta bancaria</a>
+          </li>
+        </ul>
+
+      </div>
+      <div  class="card-body">
+        <form #userInfoForm="ngForm"
+              (submit)="updateUserInfo()"
+              *ngIf="selectedButton === 'user' && hasAdminRole">
+          <p class="setting-title mb-5">Administrar usuario</p>
+          <div class="form-group mb-4">
+            <span>Tu número social : </span>
+            <strong class="form-text text-danger d-inline">{{this.user.socialNumber}}</strong>
+          </div>
+          <div class="form-group mb-4">
+            <input type="text"
+                   name="name"
+                   #name="ngModel"
+                   [(ngModel)]="this.userInfo.name"
+                   class="form-control"
+                   placeholder="Actualiza tu nombre" />
+            <strong id="name_error"
+                    class="form-text text-danger d-block"></strong>
+          </div>
+          <div class="form-group mb-4">
+            <input type="text"
+                   name="socialnumberClient"
+                   #name="ngModel"
+                   [(ngModel)]="this.userInfo.socialnumber"
+                   class="form-control"
+                   placeholder="Actualiza tu socio" />
+            <strong id="name_error"
+                    class="form-text text-danger d-block"></strong>
+          </div>
+          <div class="form-group mb-4">
+            <input type="tel"
+                   name="phone"
+                   #phone="ngModel"
+                   [(ngModel)]="this.userInfo.phone"
+                   class="form-control"
+                   placeholder="Actualiza tu teléfono" />
+            <strong id="phone_error"
+                    class="form-text text-danger d-block"></strong>
+          </div>
+          <input type="submit"
+                 class="btn btn-primary"
+                 value="Enviar"
+                 [disabled]="!submitAcivated()" />
+        </form>
+        <form
+          #emailUpdateForm="ngForm"
+          (submit)="updateUserEmail()"
+          *ngIf="selectedButton === 'email' && hasAdminRole"
+        >
+          <p class="setting-title mb-5">Administrar correo electrónico</p>
+          <div class="form-group mb-4">
+            <input
+              type="email"
+              name="currentEmail"
+              #currentEmail="ngModel"
+              [(ngModel)]="this.emailUpdate.currentEmail"
+              (focus)="emptyError('email_error')"
+              class="form-control"
+              placeholder="Ingrese su correo electrónico actual"
+            />
+            <strong
+              id="email_error"
+              class="form-text text-danger d-block"
+            ></strong>
+          </div>
+          <div class="form-group mb-4">
+            <input
+              type="email"
+              name="newEmail"
+              #newEmail="ngModel"
+              [(ngModel)]="this.emailUpdate.newEmail"
+              class="form-control"
+              placeholder="Ingrese su nuevo correo electrónico"
+            />
+            <strong
+              id="new_email_error"
+              class="form-text text-danger d-block"
+            ></strong>
+          </div> <div class="form-group mb-4">
+            <input
+              type="email"
+              name="newEmail"
+              #newEmail="ngModel"
+              [(ngModel)]="this.emailUpdate.newEmail"
+              class="form-control"
+              placeholder="Ingrese su nuevo correo electrónico"
+            />
+            <strong
+              id="new_email_error"
+              class="form-text text-danger d-block"
+            ></strong>
+          </div>
+          <input type="submit" class="btn btn-primary" value="Enviar" />
+        </form>
+        <form #passwordUpdatePassword="ngForm"
+              (submit)="updateUserPassword()"
+              *ngIf="selectedButton === 'password'">
+          <p class="setting-title mb-5">Cambia la contraseña</p>
+          <p class="setting-title mb-5">la contraseña ingresada debe contener al menos un carácter especial, un número, una letra minúscula, una letra mayúscula y tiene una longitud de al menos 8 caracteres.</p>
+
+          <!-->  <div class="form-group mb-4">
+    <input
+      type="password"
+      name="currentPassword"
+      #currentPassword="ngModel"
+      [(ngModel)]="this.passwordUpdate.currentPassword"
+      class="form-control"
+      placeholder="Introduce tu contraseña actual"
+    />
+    <strong
+      id="password_error"
+      class="form-text text-danger d-block"
+    ></strong>
+  </div> </!-->
+          <div class="form-group mb-4">
+            <input type="password"
+                   name="newPassword"
+                   #newPassword="ngModel"
+                   [(ngModel)]="this.passwordUpdate.newPassword"
+                   class="form-control"
+                   placeholder="Introduzca su nueva contraseña" />
+            <strong id="new_password_error"
+                    class="form-text text-danger d-block"></strong>
+          </div>
+          <div class="form-group mb-4">
+            <input type="password"
+                   name="confirmedPassword"
+                   #confirmedPassword="ngModel"
+                   [(ngModel)]="this.passwordUpdate.confirmedPassword"
+                   class="form-control"
+                   placeholder="Confirma tu nueva contraseña" />
+            <strong id="confirmed_password_error"
+                    class="form-text text-danger d-block"></strong>
+          </div>
+          <input type="submit" class="btn btn-primary" value="Enviar" />
+        </form>
+        <form
+          *ngIf="selectedButton === 'bank'"
+        >
+          <p class="setting-title mb-5">Información de la cuenta bancaria</p>
+          <div class="form-group mb-4">
+            <span>Cuenta bancaria : </span>
+            <strong
+              class="form-text text-danger d-inline"
+            >{{this.user.bankAccount.accountNumber}}</strong>
+          </div>
+          <div class="form-group mb-4">
+            <span>Balance : </span>
+            <strong
+              class="form-text text-danger d-inline"
+            >{{this.user.bankAccount.balance}} €</strong>
+          </div>
+          <div class="form-group mb-4">
+            <span>Estado : </span>
+            <strong
+              class="form-text text-danger d-inline"
+              [innerHTML]="this.status[this.user.bankAccount.status]"
+            ></strong>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
