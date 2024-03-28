@@ -198,7 +198,7 @@
             >{{this.user.bankAccount.accountNumber}}</strong>
           </div>
           <div class="form-group mb-4">
-            <span>Balance : </span>
+            <span>Saldo : </span>
             <strong
               class="form-text text-danger d-inline"
             >{{this.user.bankAccount.balance}} €</strong>
@@ -209,6 +209,12 @@
               class="form-text text-danger d-inline"
               [innerHTML]="this.status[this.user.bankAccount.status]"
             ></strong>
+          </div>
+          <div class="form-group mb-4">
+            <span>Última vez que se conectó : </span>
+            <strong
+              class="form-text text-danger d-inline"
+            >{{ this.lastLoginDate | date: "dd-MM-yyyy HH:mm:ss" }}</strong>
           </div>
         </form>
       </div>

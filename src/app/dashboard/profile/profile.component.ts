@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserInfoModel} from '../../shared/models/user-info-model';
 import Swal from 'sweetalert2';
@@ -9,6 +9,9 @@ import {EmailUpdateModel} from 'src/app/shared/models/email-update-model';
 import {PasswordUpdateModel} from 'src/app/shared/models/password-update-model';
 import { UserBankItemModel } from 'src/app/shared/models/user-bank-item-model';
 import { BankAccountModel } from 'src/app/shared/models/bankAccount-model';
+import { AuthentificationService } from 'src/app/shared/services/authentification.service';
+import { TokenModel } from 'src/app/shared/models/token-model';
+import { LoginModel } from 'src/app/shared/models/login-model';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +25,7 @@ export class ProfileComponent implements OnInit {
   emailUpdate: EmailUpdateModel;
   passwordUpdate: PasswordUpdateModel;
   bank: BankAccountModel;
+  lastLoginDate: Date;
 
   status = [
     '<strong>Progreso</strong>',
@@ -34,13 +38,15 @@ export class ProfileComponent implements OnInit {
   constructor(
     private jwt: JwtService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthentificationService,
   ) {
     this.jwt.switchBtnUId$.subscribe(newValue => {
       this.switchUser = newValue;
     });
    
     this.user = new UserBankItemModel();
+    this.lastLoginDate = this.authService.getLastPreviousLoginTime();
     this.userInfo = new UserInfoModel();
     this.emailUpdate = new EmailUpdateModel();
     this.passwordUpdate = new PasswordUpdateModel();

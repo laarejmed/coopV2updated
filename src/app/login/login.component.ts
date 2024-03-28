@@ -13,7 +13,7 @@ import {JwtService} from '../shared/services/jwt.service';
 })
 export class LoginComponent implements OnInit {
   loginModel: LoginModel;
-
+  
   constructor(
     private authService: AuthentificationService,
     private router: Router,
@@ -34,17 +34,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginModel).subscribe(
       (res) => {
         let tokenModel = new TokenModel(res);
-        
-
+      
         if (this.jwt.saveToken(tokenModel)) {
           this.jwt.isAdmin() && this.jwt.switchBtn
             ? this.router.navigateByUrl('/dashboard/users')
             : this.router.navigateByUrl('/dashboard/global');
-        }
-            
-
-          
-        
+        }  
       },
       (err) => {
         Swal.fire({

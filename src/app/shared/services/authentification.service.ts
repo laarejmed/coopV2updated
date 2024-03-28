@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {forkJoin, map, Observable} from 'rxjs';
+import {forkJoin, map, Observable, tap} from 'rxjs';
 import {environment} from 'src/environments/environment.prod';
 import {ForgetPasswordModel} from '../models/forget-password-model';
 import {LoginModel} from '../models/login-model';
@@ -14,8 +14,7 @@ import {TokenModel} from '../models/token-model';
 })
 export class AuthentificationService {
   readonly baseUrl = environment.apiUrl;
-  readonly baseUrl2 = "http://localhost:45855/";
- 
+  readonly baseUrl2 = "http://localhost:45855/"; 
 
   constructor(private http: HttpClient) {
   }
@@ -53,12 +52,25 @@ export class AuthentificationService {
   
     
   login(loginModel: LoginModel): Observable<TokenModel> {
+    const currentDate = new Date();
+    const datesArray: Date[] = JSON.parse(localStorage.getItem('loginTimes'));
+    datesArray.push(currentDate);
+    localStorage.setItem('loginTimes', JSON.stringify(datesArray));
     return this.http.post<TokenModel>(
       this.baseUrl + 'authentification/login',
       loginModel,
       {headers: {skip: 'true'}}
     );
   }
+
+  getLastPreviousLoginTime() {
+    const datesArray: Date[] = JSON.parse(localStorage.getItem('loginTimes'));
+    if (datesArray.length >= 2) {
+      return datesArray[datesArray.length - 2];
+    }
+    return null;
+  }
+  
   login2(loginModel2: LoginModel2): Observable<TokenModel> {
     return this.http.post<TokenModel>(
       this.baseUrl2 + 'Authenticate/login',
