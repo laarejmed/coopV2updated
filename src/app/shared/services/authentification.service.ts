@@ -53,7 +53,7 @@ export class AuthentificationService {
     
   login(loginModel: LoginModel): Observable<TokenModel> {
     const currentDate = new Date();
-    const datesArray: Date[] = JSON.parse(localStorage.getItem('loginTimes'));
+    const datesArray: Date[] = JSON.parse(localStorage.getItem('loginTimes')) || [];
     datesArray.push(currentDate);
     localStorage.setItem('loginTimes', JSON.stringify(datesArray));
     return this.http.post<TokenModel>(
