@@ -85,6 +85,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    this.jwt.updateswitchBtnUId("initial");
+    this.isChecked = true;
     this.jwt.removeToken();
     this.router.navigateByUrl('/login');
   }
