@@ -10,8 +10,6 @@ import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {UserItemModel} from 'src/app/shared/models/user-item-model';
 import {ItemsModel} from 'src/app/shared/models/items-model';
-import {JwtService} from 'src/app/shared/services/jwt.service';
-import {UserService} from 'src/app/shared/services/user-service.service';
 import Swal from 'sweetalert2';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,8 +17,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { UserPopupComponent } from '../user-popup/user-popup.component';
 import { CreateuserPopupComponent } from '../createuser-popup/createuser-popup.component';
-
-
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
+import {UserService} from '../../shared/service/user.service';
+import {AdminService} from '../../shared/service/admin.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -29,7 +28,7 @@ import { CreateuserPopupComponent } from '../createuser-popup/createuser-popup.c
 export class UserListComponent implements OnInit {
   @ViewChild(UserPopupComponent) userPopupComponent: UserPopupComponent | undefined;
   @ViewChild(CreateuserPopupComponent) createuserPopupComponent: CreateuserPopupComponent | undefined;
-
+  adminService:AdminService;
   readonly pageSize = 10;
   currentPage: number;
   listUser: Array<string>;
@@ -49,9 +48,10 @@ export class UserListComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private jwt: JwtService,
+    private jwt: JwtServiceService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private adminService1:AdminService
   ) {
     this.listUser = new Array<string>();
     this.userItems = new ItemsModel<UserItemModel>();
@@ -60,6 +60,7 @@ export class UserListComponent implements OnInit {
     this.hasAdminRole = this.jwt.isAdmin();
     this.isConnected = this.jwt.isConnected();
     this.switchBtn = this.jwt.switchBtn;
+    this.adminService=adminService1;
   }
 
   ngOnInit(): void {
@@ -189,24 +190,24 @@ export class UserListComponent implements OnInit {
 
   exportToCSV() {
     if (this.isConnected && this.hasAdminRole && this.switchBtn) {
-      this.userService.importAllUsersAsCsv();
+      this.adminService.importAllUsersAsCsv();
     }
   }
 
   exportToExcel() {
     if (this.isConnected && this.hasAdminRole && this.switchBtn) {
-      this.userService.importAllUsersAsExcel();
+      this.adminService.importAllUsersAsExcel();
     }
   }
 
   exportToPDF() {
     if (this.isConnected && this.hasAdminRole && this.switchBtn) {
-      this.userService.importAllUsersAsPdf();
+      this.adminService.importAllUsersAsPdf();
     }
   }
 
   validateAll() {
-    this.userService.validateUsers(this.listUser).subscribe(
+    this.adminService.validateUsers(this.listUser).subscribe(
       (res) => {
         let num = 0;
         this.userItems.items.map((u) => {
@@ -238,7 +239,7 @@ export class UserListComponent implements OnInit {
   }
 
   rejectAll() {
-    this.userService.rejectUsers(this.listUser).subscribe(
+    this.adminService.rejectUsers(this.listUser).subscribe(
       (res) => {
         let num = 0;
         this.userItems.items.map((u) => {
@@ -270,7 +271,7 @@ export class UserListComponent implements OnInit {
   }
 
   deleteAll() {
-    this.userService.deleteUsers(this.listUser).subscribe(
+    this.adminService.deleteUsers(this.listUser).subscribe(
       (res) => {
         let num = 0;
         this.userItems.items = this.userItems.items.filter((u) => {

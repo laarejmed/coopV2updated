@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
 import {ResetPasswordModel} from '../shared/models/reset-password-model';
-import {AuthentificationService} from '../shared/services/authentification.service';
-
+import {AutehentificationService} from '../shared/service/autehentification.service';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -13,7 +12,7 @@ export class ResetPasswordComponent implements OnInit {
   resetModel: ResetPasswordModel;
 
   constructor(
-    private authService: AuthentificationService,
+    private authService: AutehentificationService,
     private router: Router
   ) {
     this.resetModel = new ResetPasswordModel();

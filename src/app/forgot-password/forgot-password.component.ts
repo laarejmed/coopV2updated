@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import Swal from 'sweetalert2';
 import {ForgetPasswordModel} from '../shared/models/forget-password-model';
-import {AuthentificationService} from '../shared/services/authentification.service';
-
+import {AutehentificationService} from '../shared/service/autehentification.service';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
@@ -11,7 +10,7 @@ import {AuthentificationService} from '../shared/services/authentification.servi
 export class ForgotPasswordComponent implements OnInit {
   forgetModel: ForgetPasswordModel;
 
-  constructor(private authService: AuthentificationService) {
+  constructor(private authService: AutehentificationService) {
     this.forgetModel = new ForgetPasswordModel();
   }
 
@@ -33,7 +32,6 @@ export class ForgotPasswordComponent implements OnInit {
       }
     );
   }
-
   emptyError(field: string) {
     document.getElementById(field).textContent = '';
   }

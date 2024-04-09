@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router'; // Pour constructor(private router:Router)  : fonctionne
-import {AuthentificationService} from '../shared/services/authentification.service';
 import {LoginModel} from '../shared/models/login-model';
 import {TokenModel} from '../shared/models/token-model';
 import Swal from 'sweetalert2';
-import {JwtService} from '../shared/services/jwt.service';
-
+import {JwtServiceService} from '../shared/service/jwt-service.service';
+import {AutehentificationService} from '../shared/service/autehentification.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,11 +12,11 @@ import {JwtService} from '../shared/services/jwt.service';
 })
 export class LoginComponent implements OnInit {
   loginModel: LoginModel;
-  
+
   constructor(
-    private authService: AuthentificationService,
+    private authService: AutehentificationService,
     private router: Router,
-    private jwt: JwtService
+    private jwt: JwtServiceService
   ) {
     this.loginModel = new LoginModel();
     if (this.jwt.isConnected()) {
@@ -34,12 +33,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginModel).subscribe(
       (res) => {
         let tokenModel = new TokenModel(res);
-      
+
         if (this.jwt.saveToken(tokenModel)) {
           this.jwt.isAdmin() && this.jwt.switchBtn
             ? this.router.navigateByUrl('/dashboard/users')
             : this.router.navigateByUrl('/dashboard/global');
-        }  
+        }
       },
       (err) => {
         Swal.fire({
@@ -49,6 +48,6 @@ export class LoginComponent implements OnInit {
         });
       }
     );
-    
+
   }
 }

@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {RegisterModel} from '../shared/models/register-model';
-import {AuthentificationService} from '../shared/services/authentification.service';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
-import { UserService } from '../shared/services/user-service.service';
-
+import {AutehentificationService} from '../shared/service/autehentification.service';
+import {UserService} from '../shared/service/user.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -21,7 +20,7 @@ export class SignupComponent implements OnInit {
   };
 
   constructor(
-    private authService: AuthentificationService,
+    private authService: AutehentificationService,
     private router: Router,
     private userService: UserService
   ) {
@@ -35,7 +34,7 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     console.log(this.registerModel);
     if (!this.registerModel.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/gm))
-    
+
     {
       document.getElementById('email_error').textContent = 'Por favor introduzca una dirección de correo electrónico válida';
     } else if(!this.registerModel.password.match(/(?=.*\W)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/gm))

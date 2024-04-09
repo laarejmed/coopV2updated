@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {JwtService} from '../../shared/services/jwt.service';
-
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  constructor(private jwt: JwtService, private router: Router) {
+  constructor(private jwt: JwtServiceService, private router: Router) {
   }
 
   ngOnInit(): void {

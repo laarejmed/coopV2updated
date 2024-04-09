@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RegisterModel } from '../../shared/models/register-model';
-import { AuthentificationService } from '../../shared/services/authentification.service';
-import { UserService } from '../../shared/services/user-service.service';
-
+import {UserService} from '../../shared/service/user.service';
+import {AutehentificationService} from '../../shared/service/autehentification.service';
 @Component({
   selector: 'app-createuser-popup',
   templateUrl: './createuser-popup.component.html',
@@ -21,7 +20,7 @@ export class CreateuserPopupComponent implements OnInit {
   };
 
   constructor(
-    private authService: AuthentificationService,
+    private authService: AutehentificationService,
     private router: Router,
     private userService: UserService
   ) {
@@ -43,7 +42,7 @@ export class CreateuserPopupComponent implements OnInit {
         'La nueva contraseña y la contraseña confirmada deben ser las mismas';
     } else {
 
-      
+
         this.authService.registernovalidation(this.registerModel).subscribe(
           (res) => {
             this.userService.progressNumber = this.userService.progressNumber + 1;
@@ -62,10 +61,10 @@ export class CreateuserPopupComponent implements OnInit {
             });
           }
         );
-      } 
-      
+      }
+
     }
-  
+
 
   emptyError(field: string) {
     document.getElementById(field).textContent = '';
