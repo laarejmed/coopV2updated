@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EmailConfirmationComponent} from './email-confirmation/email-confirmation.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import { ReceiptComponent } from './receipt/receipt.component';
+import { NotificationComponent } from './notification/notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { ReceiptComponent } from './receipt/receipt.component';
     PageNotFoundComponent,
     EmailConfirmationComponent,
     ResetPasswordComponent,
-    ReceiptComponent
+    ReceiptComponent,
+    NotificationComponent
     ],
   imports: [
     BrowserModule,
