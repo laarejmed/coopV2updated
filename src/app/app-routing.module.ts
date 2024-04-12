@@ -6,7 +6,7 @@ import {SignupComponent} from './signup/signup.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {EmailConfirmationComponent} from './email-confirmation/email-confirmation.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
-import {ReceiptComponent} from './receipt/receipt.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
@@ -21,7 +21,7 @@ const routes: Routes = [
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {path: 'pageNotFound', component: PageNotFoundComponent},
-  {path:'reciept',component:ReceiptComponent}
+  {path:'receipt',component:ReceiptComponent}
 ];
 @NgModule({
   declarations: [],

@@ -31,7 +31,7 @@
     "@popperjs/core": "^2.10.2",
     "@sendinblue/client": "^3.2.2",
     "angular-datatables": "^13.0.1",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^4.6.2",
     "chart.js": "^2.9.3",
     "core-js": "^3.22.1",
     "datatables.net": "^1.11.5",
