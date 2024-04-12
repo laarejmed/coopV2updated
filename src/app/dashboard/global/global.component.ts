@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtService } from '../../shared/services/jwt.service';
-import { BankAccountService } from '../../shared/services/bank-account.service';
 import { TransactionModel } from '../../shared/models/transaction-model';
-import { TransactionService } from '../../shared/services/transaction.service';
-import { UserService } from '../../shared/services/user-service.service';
-import { RequestServiceService } from '../../shared/services/request-service.service';
-
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
+import {TransactionService} from '../../shared/service/transaction.service';
+import {UserService} from '../../shared/service/user.service';
+import {RequestService} from '../../shared/service/request.service';
+import {BankAccountServiceService} from '../../shared/service/bank-account-service.service';
 @Component({
   selector: 'app-global',
   templateUrl: './global.component.html',
@@ -21,12 +20,12 @@ export class GlobalComponent implements OnInit {
   switchUser: any;
   user: any;
   constructor(
-    private jwt: JwtService,
+    private jwt: JwtServiceService,
     private router: Router,
-    private bankAccountService: BankAccountService,
+    private bankAccountService: BankAccountServiceService,
     private transactionService: TransactionService,
     private userService: UserService,
-    private requestService: RequestServiceService
+    private requestService: RequestService
   ) {
     this.jwt.switchBtnUId$.subscribe(newValue => {
       this.switchUser = newValue;
@@ -50,10 +49,10 @@ export class GlobalComponent implements OnInit {
         console.log(this.user);
       },
       (err) => {
-        
+
       }
     );
-   
+
 
   }
 
@@ -66,13 +65,13 @@ export class GlobalComponent implements OnInit {
         this.userBalance = next.balance;
         this.userBankAccountId = next.id;
         this.transactionService
-          .getTransactionsByUser(
+          .getTransactionByUser(
             this.userBankAccountId,
             1,
             10
           )
           .subscribe((data) => {
-           
+
             this.totaltransactions = data.pagination.totalRecords;
 
           });
@@ -86,19 +85,19 @@ export class GlobalComponent implements OnInit {
 
         this.getLastFiveTransactions();
       });
-   
+
   }
 
   getLastFiveTransactions() {
     this.transactionService
-      .getTransactionsByUser(this.userBankAccountId, 1, 5)
+      .getTransactionByUser(this.userBankAccountId, 1, 5)
       .subscribe(this.processResult());
   }
 
   processResult() {
     return (data) => {
       this.transactions = data.response;
-     
+
     };
   }
 

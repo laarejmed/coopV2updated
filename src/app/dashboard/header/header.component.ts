@@ -10,10 +10,8 @@ import {RequestService} from '../../shared/service/request.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
   inProgressTransactions = 0;
   isChecked = true;
-
 
   constructor(private jwt: JwtServiceService, private router: Router, public userService: UserService, public requestService: RequestService, private transactionService: TransactionService) {
     this.jwt.switchBtnUId$.subscribe(newValue => {

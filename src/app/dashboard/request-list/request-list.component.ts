@@ -6,15 +6,13 @@ import {
   ViewChildren,
 } from '@angular/core';
 import {Router} from '@angular/router';
-import {JwtService} from 'src/app/shared/services/jwt.service';
-import {RequestServiceService} from 'src/app/shared/services/request-service.service';
 import {RequestModel} from '../../shared/models/request-model';
-import {StatusModel} from '../../shared/models/status-model';
 import Swal from 'sweetalert2';
 import {ItemsModel} from '../../shared/models/items-model';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {UserService} from '../../shared/services/user-service.service';
-
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
+import {RequestService} from '../../shared/service/request.service';
+import {StatusModel} from '../../shared/service/status-model';
 @Component({
   selector: 'app-request-list',
   templateUrl: './request-list.component.html',
@@ -43,7 +41,7 @@ export class RequestListComponent implements OnInit {
   witness: boolean;
   currentPage: number;
 
-  constructor(private jwt: JwtService, private router: Router, private requestService: RequestServiceService, private modalService: NgbModal) {
+  constructor(private jwt: JwtServiceService, private router: Router, private requestService: RequestService, private modalService: NgbModal) {
 
     this.listRequest = [];
     this.requests = [];
@@ -66,8 +64,8 @@ export class RequestListComponent implements OnInit {
   getItems(num: number) {
     this.requestService.getRequests(num, this.pageSize).subscribe(
       (res) => {
-       
-       
+
+
         Object.assign(this.requestItems, res);
         this.requestService.progressNumber = this.requestItems.progressNumber;
         console.log(this.requestService.progressNumber);
@@ -92,10 +90,11 @@ export class RequestListComponent implements OnInit {
     );
     window.scrollTo(0, 0);
   }
-
-
   filterByApproved() {
-    this.requestService.FilterRequest(StatusModel.Approuved, this.pageNumber, this.pageSize).subscribe(
+    // @ts-ignore
+    this.requestService.FilterRequest(StatusModel.Approved,
+      this.pageNumber,
+      this.pageSize).subscribe(
       this.processResult()
     );
     this.state = 1;
@@ -103,6 +102,7 @@ export class RequestListComponent implements OnInit {
   }
 
   filterByProgress() {
+    // @ts-ignore
     this.requestService.FilterRequest(StatusModel.Progress, this.pageNumber, this.pageSize).subscribe(
       this.processResult()
     );
@@ -252,7 +252,8 @@ export class RequestListComponent implements OnInit {
       (res) => {
         this.requests.map((req) => {
           if (this.listRequest.includes(req.id)) {
-            req.status = StatusModel.Approuved;
+            // @ts-ignore
+            req.status = StatusModel.Approved;
           }
         });
         this.requestService.progressNumber = this.requestService.progressNumber - this.listRequest.length;
@@ -274,6 +275,7 @@ export class RequestListComponent implements OnInit {
       (res) => {
         this.requests.map((req) => {
           if (this.listRequest.includes(req.id)) {
+            // @ts-ignore
             req.status = StatusModel.Rejected;
           }
         });
