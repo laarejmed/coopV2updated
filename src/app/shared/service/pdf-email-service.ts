@@ -1,7 +1,10 @@
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable,Observer, Subject, catchError, from, throwError} from 'rxjs';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from  'pdfmake/build/vfs_fonts';
+import * as nodemailer from 'nodemailer';
+import * as fs from 'fs';
+import { text } from 'stream/consumers';
 export class PdfEmailService {
   constructor(private http:HttpClient) {
   }
@@ -33,5 +36,33 @@ export class PdfEmailService {
         observer.complete();
       });
     });
+  }
+  async sendEmailWithPdf(email:string,pdfpath:string){
+    const transporter=nodemailer.createTransport({
+      service:'gmail',
+      auth:{
+        user:'infos.chafaf@gmail.com',
+        pass:'chafaf'
+      }
+    });
+    const pdfContent=fs.readFileSync(pdfpath);
+    const mailOptions={
+      from:'infos.chafaf@gmail.com',
+      to:'email',
+      subject:'Votre reçu pdf',
+      text:'Veuillez trouver ci-joint votre reçue PDF',
+      attachments:[{
+        filename:'recu.pdf',
+        content:pdfContent
+      }]
+    };
+    try{
+      await transporter.sendMail(mailOptions);
+      console.log('Email envoyé avec succés!');
+    }
+    catch(error){
+      console.error('Erreur lors de l envoie de l email:',error);
+      throw error;
+    }
   }
 }
