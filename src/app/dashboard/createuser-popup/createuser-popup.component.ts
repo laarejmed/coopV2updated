@@ -41,8 +41,6 @@ export class CreateuserPopupComponent implements OnInit {
       document.getElementById('confirmPassword_error').textContent =
         'La nueva contraseña y la contraseña confirmada deben ser las mismas';
     } else {
-
-
         this.authService.registernovalidation(this.registerModel).subscribe(
           (res) => {
             this.userService.progressNumber = this.userService.progressNumber + 1;
