@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { JwtService } from '../../shared/services/jwt.service';
 import { Router } from '@angular/router';
 import { TransactionModel } from '../../shared/models/transaction-model';
-import { TransactionService } from '../../shared/services/transaction.service';
 import Swal from 'sweetalert2';
 import { TransactionPopupComponent } from '../transaction-popup/transaction-popup.component';
-import { BankAccountService } from 'src/app/shared/services/bank-account.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UserService } from '../../shared/services/user-service.service';
-import { RequestServiceService } from '../../shared/services/request-service.service';
 import { ResetPasswordModel } from '../../shared/models/reset-password-model';
 import { ResetSoldeModel } from '../../shared/models/resetsoldemodel';
-
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
+import {TransactionService} from '../../shared/service/transaction.service';
+import {UserService} from '../../shared/service/user.service';
+import {BankAccountServiceService} from '../../shared/service/bank-account-service.service';
+import {RequestService} from '../../shared/service/request.service';
 @Component({
   selector: 'app-transaction-list',
   templateUrl: './transaction-list.component.html',
@@ -38,12 +37,12 @@ export class TransactionListComponent implements OnInit {
   totalrequests: number;
   constructor(
     public dialog: MatDialog,
-    private jwt: JwtService,
+    private jwt: JwtServiceService,
     private router: Router,
     private transactionService: TransactionService,
-    private bankService: BankAccountService, private modalService: NgbModal,
+    private bankService: BankAccountServiceService, private modalService: NgbModal,
     private userService: UserService,
-    private requestService: RequestServiceService
+    private requestService: RequestService
   ) {
     this.transactions = [];
     this.listTransaction = [];
@@ -73,7 +72,7 @@ export class TransactionListComponent implements OnInit {
   ngOnInit(): void {
 
     window.scrollTo(0, 0);
-    //loading data depends on variable subscribed for some  user or admin 
+    //loading data depends on variable subscribed for some  user or admin
     let UId: any = this.jwt.getConnectedUserId();
     if (this.switchUser != "initial") { UId = this.switchUser; console.log(UId); }
     this.bankService.getBankAccount(UId).subscribe(
@@ -82,9 +81,9 @@ export class TransactionListComponent implements OnInit {
         this.userBalance = next.balance;
         this.userBankAccountId = next.id;
         console.log("bankidd" + this.userBankAccountId);
-       
+
         this.transactionService
-          .getTransactionsByUser(
+          .getTransactionByUser(
             this.userBankAccountId,
             1,
             10
@@ -102,7 +101,7 @@ export class TransactionListComponent implements OnInit {
 
           }
         );
-       
+
       },
       (err) => console.log(err)
     );
@@ -111,7 +110,7 @@ export class TransactionListComponent implements OnInit {
     this.userService.getUser(UId).subscribe(
       (res) => {
         this.user = res;
-       
+
       },
       (err) => {
 
@@ -194,7 +193,7 @@ export class TransactionListComponent implements OnInit {
 
   getTransactionsByUser() {
     this.transactionService
-      .getTransactionsByUser(
+      .getTransactionByUser(
         this.userBankAccountId,
         this.pageNumber,
         this.pageSize
@@ -387,19 +386,19 @@ export class TransactionListComponent implements OnInit {
 
   exportToCSV() {
     if (this.isConnected && this.hasAdminRole && this.switchBtn) {
-      this.transactionService.importAllTransactionsAsCsv();
+      this.transactionService.importAllTransactionAsCsv();
     }
   }
 
   exportToExcel() {
     if (this.isConnected && this.hasAdminRole && this.switchBtn) {
-      this.transactionService.importAllTransactionsAsExcel();
+      this.transactionService.importAllTranascationAsExcel();
     }
   }
 
   exportToPDF() {
     if (this.isConnected && this.hasAdminRole && this.switchBtn) {
-      this.transactionService.importAllTransactionsAsPdf();
+      this.transactionService.importAllTransactionAsPdf();
     }
   }
 
@@ -409,7 +408,7 @@ export class TransactionListComponent implements OnInit {
 
   getAllTransactionsByStatus(status: string) {
     if (status !== '3') {
-      this.transactionService.getAllTransactionsByStatus(status, this.pageNumber, this.pageSize).subscribe(this.processResult());
+      this.transactionService.getAllTransactionByStatus(status, this.pageNumber, this.pageSize).subscribe(this.processResult());
       this.state = true;
       this.status = status;
     } else {

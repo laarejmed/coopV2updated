@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Inscription } from '../models/inscription';
-import { Observable, skip } from 'rxjs';
+import {catchError, Observable, of, skip, tap} from 'rxjs';
 import { LoginRequest } from '../models/login-request';
 import { TokenModel } from '../models/token-model';
 import { ForgotPassord } from '../models/forgot-passord';
@@ -99,16 +99,17 @@ export class AutehentificationService {
     return this.http.post(environment.apiUrl, { email });
   }
   registernovalidation(registerModel: RegisterModel) {
-    this.authService.registernovalidation(registerModel).subscribe({
-      next: (res) => {
+    return this.authService.registernovalidation(registerModel).pipe(
+      tap((res) => {
         console.log('Enregistrement réussi :', res);
         this.handleRegistrationSuccess();
-      },
-      error: (err) => {
+      }),
+      catchError((err) => {
         console.error('Erreur lors de l\'enregistrement :', err);
         this.handleRegistrationError(err);
-      }
-    });
+        return of(null); // Renvoyer un observable de valeur nulle ou d'autres valeurs par défaut si nécessaire
+      })
+    );
   }
   private handleRegistrationSuccess() {
     this.showSuccessMessage('Enregistrement réussi');

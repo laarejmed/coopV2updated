@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfo } from 'os';
+import {UserInfo} from 'os';
 import Swal from 'sweetalert2';
 import { Updateuser } from '../../shared/models/updateuser';
 import { UserInfoModel } from '../../shared/models/user-info-model';
-import { JwtService } from '../../shared/services/jwt.service';
-import { UserService } from '../../shared/services/user-service.service';
-
+import {UserService} from '../../shared/service/user.service';
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
 @Component({
   selector: 'app-user-popup',
   templateUrl: './user-popup.component.html',
@@ -15,7 +14,7 @@ export class UserPopupComponent implements OnInit {
   updateuser: Updateuser;
   userInfo: UserInfoModel;
   switchUser: any;
-  constructor(private userService: UserService, private jwt: JwtService) {
+  constructor(private userService: UserService, private jwt: JwtServiceService) {
     this.updateuser = new Updateuser();
     this.userInfo = new UserInfoModel();
     this.jwt.switchBtnUId$.subscribe(newValue => {

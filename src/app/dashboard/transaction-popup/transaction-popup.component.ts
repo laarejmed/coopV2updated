@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-
 import Swal from 'sweetalert2';
-import { CoopValidators } from '../../shared/validators/coopValidators';
-import { JwtService } from '../../shared/services/jwt.service';
-import { TransactionService } from '../../shared/services/transaction.service';
 import { TransactionModel } from '../../shared/models/transaction-model';
-import { BankAccountService } from 'src/app/shared/services/bank-account.service';
 import { TransactionPostModel } from '../../shared/models/Transaction-post-model';
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
+import {TransactionService} from '../../shared/service/transaction.service';
+import {BankAccountServiceService} from '../../shared/service/bank-account-service.service';
 
 @Component({
   selector: 'app-transaction-popup',
@@ -47,9 +45,9 @@ export class TransactionPopupComponent implements OnInit {
   switchUser: any;
   constructor(
     private _formBuilder: FormBuilder,
-    private jwt: JwtService,
+    private jwt: JwtServiceService,
     private transactionService: TransactionService,
-    private bankService: BankAccountService
+    private bankService: BankAccountServiceService
   ) {// for accesing as user from admin change value in service then subscribe to nmake change in loading data as user in different component
     this.jwt.switchBtnUId$.subscribe(newValue => {
       this.switchUser = newValue;
@@ -60,7 +58,7 @@ export class TransactionPopupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //loading data depends on variable subscribed for some  user or admin 
+    //loading data depends on variable subscribed for some  user or admin
     let UId: any = this.jwt.getConnectedUserId();
     if (this.switchUser != "initial") { UId = this.switchUser; console.log(UId); }
     this.bankService.getBankAccount(UId).subscribe(
