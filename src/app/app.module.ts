@@ -11,7 +11,8 @@ import {SignupComponent} from './signup/signup.component';//kayne
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';//kayne
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EmailConfirmationComponent} from './email-confirmation/email-confirmation.component';//kayne
-import {ResetPasswordComponent} from './reset-password/reset-password.component';//kayne
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import { ReceiptComponent } from './receipt/receipt.component';//kayne
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
     PageNotFoundComponent,
     EmailConfirmationComponent,
     ResetPasswordComponent,
+    ReceiptComponent,
     ],
 
   imports: [

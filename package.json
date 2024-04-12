@@ -50,6 +50,7 @@
     "ngx-pagination": "^6.0.2",
     "oidc-client": "~1.11.5",
     "os": "^0.1.2",
+    "pdfmake": "^0.2.10",
     "popper.js": "^1.16.1",
     "rxjs": "^7.5.5",
     "sweetalert2": "^11.4.8",
