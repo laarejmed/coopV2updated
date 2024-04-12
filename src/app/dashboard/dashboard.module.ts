@@ -19,10 +19,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {TransactionPopupComponent} from './transaction-popup/transaction-popup.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {TokenInterceptorService} from '../shared/services/token-interceptor.service';
 import { UserPopupComponent } from './user-popup/user-popup.component';
 import { CreateuserPopupComponent } from './createuser-popup/createuser-popup.component';
-
+import {TokenInterceptorServiceService} from '../shared/service/token-interceptor-service.service';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -52,7 +51,7 @@ import { CreateuserPopupComponent } from './createuser-popup/createuser-popup.co
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
+      useClass: TokenInterceptorServiceService,
       multi: true,
     },
   ],

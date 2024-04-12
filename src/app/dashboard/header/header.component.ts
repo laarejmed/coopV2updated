@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserService} from 'src/app/shared/services/user-service.service';
-import {JwtService} from '../../shared/services/jwt.service';
-import {RequestServiceService} from '../../shared/services/request-service.service';
-import {TransactionService} from '../../shared/services/transaction.service';
-
+import {JwtServiceService} from '../../shared/service/jwt-service.service';
+import {UserService} from '../../shared/service/user.service';
+import {TransactionService} from '../../shared/service/transaction.service';
+import {RequestService} from '../../shared/service/request.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,9 +13,9 @@ export class HeaderComponent implements OnInit {
 
   inProgressTransactions = 0;
   isChecked = true;
-  
 
-  constructor(private jwt: JwtService, private router: Router, public userService: UserService, public requestService: RequestServiceService, private transactionService: TransactionService) {
+
+  constructor(private jwt: JwtServiceService, private router: Router, public userService: UserService, public requestService: RequestService, private transactionService: TransactionService) {
     this.jwt.switchBtnUId$.subscribe(newValue => {
       if (newValue != "initial") {
         this.isChecked = false;
@@ -25,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
     this.countInProgressTransactions();
     this.refreshTransactionCounter();
   }

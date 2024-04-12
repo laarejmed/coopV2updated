@@ -11,6 +11,7 @@ import {RegisterModel} from '../models/register-model';
 import {LoginModel} from '../models/login-model';
 import {ForgetPasswordModel} from '../models/forget-password-model';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -88,33 +89,56 @@ export class AutehentificationService {
     );
   }
   forgetPassword(forgetModel: ForgetPasswordModel) {
-    this.authService.sendPasswordResetEmail(forgetModel.email).susbscribe(response => {
+    this.authService.sendPasswordResetEmail(forgetModel.email).subscribe(response => {
         console.log('Demande de réinitialisation de mot de passe envoyée avec succès !',response);
       }, error => {
         console.error('Erreur lors de l\'envoi de la demande de réinitialisation de mot de passe :', error);
       });
   }
-
   sendPasswordResetEmail(email: string):Observable<any>{
     return this.http.post(environment.apiUrl, { email });
   }
-
   registernovalidation(registerModel: RegisterModel) {
-    this.authService.registernovalidation(this.registerModel).subscribe(
-      (res) => {
+    this.authService.registernovalidation(registerModel).subscribe({
+      next: (res) => {
         console.log('Enregistrement réussi :', res);
-        this.showSuccessMessage('Enregistrement réussi');
-        this.router.navigate(['/dashboard']);
+        this.handleRegistrationSuccess();
       },
-      (err) => {
+      error: (err) => {
         console.error('Erreur lors de l\'enregistrement :', err);
-        // Afficher un message d'erreur à l'utilisateur
-        this.showErrorMessage('Erreur lors de l\'enregistrement');
-        // Si votre API renvoie des messages d'erreur spécifiques, vous pouvez les afficher à l'utilisateur
-        if (err.error && err.error.message) {
-          this.showErrorMessage(err.error.message);
-        }
+        this.handleRegistrationError(err);
       }
-    );
+    });
+  }
+  private handleRegistrationSuccess() {
+    this.showSuccessMessage('Enregistrement réussi');
+    this.router.navigate(['/dashboard']);
+  }
+  private handleRegistrationError(error: any) {
+    let errorMessage = 'Erreur lors de l\'enregistrement';
+    if (error.error && error.error.message) {
+      errorMessage = error.error.message;
+    }
+    this.showErrorMessage(errorMessage);
+  }
+  showSuccessMessage(message: string) {
+    Swal.fire({
+      title: 'Success!',
+      text: message,
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
+  }
+  showErrorMessage(message: string) {
+    Swal.fire({
+      title: 'Error!',
+      text: message,
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
   }
 }
+function registerModel(registerModel: RegisterModel) {
+    throw new Error('Function not implemented.');
+}
+
