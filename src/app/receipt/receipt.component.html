@@ -1,1 +1,32 @@
-<p>receipt works!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reçu de transaction</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center">Reçue de transaction</h1>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <p><strong>Date:</strong>{{transaction.date}}</p>
+                            <p><strong>Montant :</strong> {{ transaction.amount }}</p>
+                            <p><strong>Description :</strong> {{ transaction.description }}</p>
+                            <p><strong>Emetteur :</strong> {{ transaction.sender }}</p>
+                            <p><strong>Destinataire :</strong> {{ transaction.receiver }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <p>Merci pour votre transaction!</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
