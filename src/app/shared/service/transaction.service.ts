@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import {TransactionModel} from '../models/transaction-model';
 import {environment} from '../../../environments/environment.prod';
 import {HttpClient, HttpHeaders, HttpParams, HttpUrlEncodingCodec} from '@angular/common/http';
-import {Observable, Subject} from 'rxjs';
+import {Observable, Subject, of} from 'rxjs';
 import {TransactionPostModel} from '../models/Transaction-post-model';
 import {ResetSoldeModel} from '../models/resetsoldemodel';
 import {saveAs} from 'file-saver';
+import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
   readonly baseUrl=environment.apiUrl+'transactions';
   transaction:TransactionModel;
+  userService:UserService;
   refreshTransactions;
   constructor(private http:HttpClient){
     this.transaction=new TransactionModel();
@@ -116,6 +118,11 @@ export class TransactionService {
   downLoadFile(data: any, type: string) {
     const blob = new Blob([data], {type: type});
     saveAs(blob, 'Transacciones');
+  }
+  verifierTransaction(montantTransaction: number): Observable<boolean> {
+    const soldeUtilisateur = this.userService.getSoldeUtilisateur();
+    const estTransactionPossible = soldeUtilisateur >= montantTransaction;
+    return of(estTransactionPossible);
   }
 }
 export interface Transaction {

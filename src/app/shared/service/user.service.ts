@@ -58,4 +58,7 @@ export class UserService {
   updateUserInfo(userInfo: UserInfoModel):Observable<any>{
     return this.http.put<any>(environment.apiUrl, userInfo);
   }
+  getSoldeUtilisateur():number{
+    return Math.random() * 1000;
+  }
 }
