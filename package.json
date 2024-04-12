@@ -48,6 +48,7 @@
     "ng2-pdfjs-viewer": "^13.2.2",
     "ngx-extended-pdf-viewer": "^14.0.5",
     "ngx-pagination": "^6.0.2",
+    "ngx-toastr": "^18.0.0",
     "nodemailer": "^6.9.13",
     "oidc-client": "~1.11.5",
     "os": "^0.1.2",
