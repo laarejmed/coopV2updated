@@ -3,8 +3,9 @@ import {Observable,Observer, Subject, catchError, from, throwError} from 'rxjs';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from  'pdfmake/build/vfs_fonts';
 import * as nodemailer from 'nodemailer';
-import * as fs from 'fs';
-import { text } from 'stream/consumers';
+//import { text } from 'stream/consumers';
+//import * as fs from 'fs';
+import { text } from 'streamroller/lib';
 export class PdfEmailService {
   constructor(private http:HttpClient) {
   }

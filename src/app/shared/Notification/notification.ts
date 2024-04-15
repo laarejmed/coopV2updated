@@ -3,7 +3,13 @@ import { UserService } from "../service/user.service";
 export class Notification {
     constructor(private transactionService:TransactionService,private userService:UserService){}
     effectuerTransaction(montant:number):void{
-        this.transactionService.verifierTransaction(montant)
+        this.transactionService.verifierTransaction(montant).subscribe(
+            (estTransactionPossible:boolean)=>{
+                if(estTransactionPossible){
+                    this.transactionService.effectuerTransaction(montant).subscribe()
+                }
+            }
+        )
     }
 }
 /**
