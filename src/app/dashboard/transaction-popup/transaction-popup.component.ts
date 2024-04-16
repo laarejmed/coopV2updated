@@ -68,8 +68,7 @@ export class TransactionPopupComponent implements OnInit {
       (err) => console.log(err)
     );
   }
-
-  onSubmit() {
+  /*onSubmit() {
     if (this.transactionFormGroup.invalid) {
       Object.keys(this.transactionFormGroup.controls).forEach(field => {
         const control = this.transactionFormGroup.get(field);
@@ -110,8 +109,47 @@ export class TransactionPopupComponent implements OnInit {
         });
       }
     );
+  }*/
+  onSubmit(){
+    if(this.transactionFormGroup.invalid){
+      this.transactionFormGroup.markAsTouched();
+      return;
+    }
+    const transaction={
+      senderBankAccountNumber:this.extractAccountNumber('origin'),
+      originBankAccountNumber:this.userBankAccountNumber,
+      receiverBankAccountNumber:this.extractAccountNumber('destination'),
+      amount:this.extractAmount(),
+      motif:this.transactionFormGroup.get('receiverInfo.concept').value || '',
+      dateTransaction:this.exctractDate() || new Date()
+    };
+    console.log(transaction);
   }
-
+  /*
+  this.transactionService.postTransaction(transaction).subscribe(
+    () => {
+      this.showSuccessMessage();
+      this.transactionService.refresh();
+      document.getElementById('closeDialog').click();
+    },
+    () => {
+      this.showErrorMessage();
+    }
+  );
+}*/
+  exctractDate():Date{
+    const dateValue=this.transactionFormGroup.get('receiverInfo.dateTransaction').value;
+    return dateValue ? new Date(dateValue):null;
+  }
+  extractAccountNumber(type:string):string{
+    const accountTypes=['originalAccount','externalAccount','receiverAccount'];
+    const control=this.transactionFormGroup.get(`${type}.${accountTypes.find(type=>this.transactionFormGroup.get(`${type}.${type}`))}`);
+    return control ? control.value:'';
+  }
+  extractAmount():number{
+    const amount=this.transactionFormGroup.get('receiverInfo.amount').value.replace(',','.');
+    return parseFloat(amount);
+  }
   get concept() {
     return this.transactionFormGroup.get('receiverInfo.concept');
   }
