@@ -2,32 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { PdfEmailService } from '../shared/service/pdf-email-service';
 import { TransactionService } from '../shared/service/transaction.service';
 import { catchError, switchMap, throwError } from 'rxjs';
+import {TransactionModel} from '../shared/models/transaction-model';
 @Component({
   selector: 'app-receipt',
   templateUrl: './receipt.component.html',
   styleUrls: ['./receipt.component.css']
 })
 export class ReceiptComponent implements OnInit {
-  constructor(private pdfEmailService:PdfEmailService,private transactionService:TransactionService) { }
+  transaction: TransactionModel;
+
+  constructor(private pdfEmailService: PdfEmailService, private transactionService: TransactionService) {
+    this.transaction = new TransactionModel();
+  }
+
   ngOnInit(): void {
   }
-  onAcceptTransaction(transactionData: any, userEmail: string) {
-    // Accepter la transaction
-    this.transactionService.validateTransaction(transactionData).pipe(
-      switchMap(() => {
-        return this.pdfEmailService.generatePdf(transactionData);
-      }),
-      switchMap(pdf => {
-        return this.pdfEmailService.sendEmailWithPdf(userEmail, pdf.url);
-      }),
-      catchError(error => {
-        console.error('Une erreur est survenue :', error);
-        return throwError(error); 
-      })
-    ).subscribe(response => {
-      console.log('E-mail envoyé avec succès :', response);
-    }, error => {
-      console.error('Erreur lors de l\'envoi de l\'e-mail :', error);
-    });
+
+  async onAcceptTransaction(transactionData: any, userEmail: string) {
+    try {
+      await this.transactionService.validateTransaction(transactionData).toPromise();
+      const pdf = await this.pdfEmailService.generatePdf(transactionData).toPromise();
+      const response = await this.pdfEmailService.sendEmailWithPdf(userEmail, pdf.url).toPromise();
+      console.log('E-mail envoyé avec succès:', response);
+    } catch (error) {
+      // Gérer les erreurs
+      console.error('Une erreur est survenue:', error);
+      throw error;
+    }
   }
 }
