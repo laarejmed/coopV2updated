@@ -8,8 +8,6 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-
 :root {
   scroll-behavior: smooth;
 }
@@ -20,7 +18,10 @@ body {
   color: #444444;
 }
 
-
+a {
+  color: #fff;
+  text-decoration: none;
+}
 
 a:hover {
   color: #717ff5;
@@ -35,12 +36,9 @@ h1, h2, h3, h4, h5, h6 {
 # Main
 --------------------------------------------------------------*/
 #main {
-  margin-top: 60px;
+  margin-top: 77px;
   padding: 20px 30px;
   transition: all 0.3s;
-  width: 100%;
-  position: relative;
-  padding: 120px 0 0 0;
 }
 @media (max-width: 1199px) {
   #main {
@@ -52,6 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 # Page Title
 --------------------------------------------------------------*/
 .pagetitle {
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 .pagetitle h1 {
@@ -106,19 +105,23 @@ h1, h2, h3, h4, h5, h6 {
   animation-fill-mode: both;
   border: 0;
   box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
+  float:right;
 }
 .dropdown-menu .dropdown-header, .dropdown-menu .dropdown-footer {
   text-align: center;
-  font-size: 15px;
+  font-size: 25px;
   padding: 10px 25px;
+  color:black;
 }
-.dropdown-menu .dropdown-footer a {
-  color: #444444;
-  text-decoration: underline;
-}
-.dropdown-menu .dropdown-footer a:hover {
-  text-decoration: none;
-}
+  .dropdown-menu .dropdown-header h6 {
+    color: black;
+    font-size: 20px;
+    font-family: prompt;
+  }
+  .dropdown-menu .dropdown-footer a {
+    color: #444444;
+    text-decoration: underline;
+  }
 .dropdown-menu .dropdown-divider {
   color: #a5c5fe;
   margin: 0;
@@ -127,14 +130,24 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   padding: 10px 15px;
   transition: 0.3s;
+  color:black;
+  
 }
-.dropdown-menu .dropdown-item i {
+  .dropdown-menu .dropdown-item span {
+    margin-right: 10px;
+    font-size: 18px;
+    line-height: 0;
+    color: #010351;
+    font-family: prompt;
+    font-weight:bold;
+   
+  }
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #4FD894;
+  }
+#navbarCollapse {
+  /*float: right;*/
   margin-right: 10px;
-  font-size: 18px;
-  line-height: 0;
-}
-.dropdown-menu .dropdown-item:hover {
-  background-color: #f6f9ff;
 }
 
 @media (min-width: 768px) {
@@ -215,6 +228,10 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: 0rem !important; 
 }
 
 .card-header, .card-footer {
@@ -335,16 +352,17 @@ h1, h2, h3, h4, h5, h6 {
 .logos {
   line-height: 1;
 }
-@media (min-width: 1200px) {
-  .logo {
-    width: 280px;
-  }
-}
-.logos img {
 
-  max-height: 60px;
-  margin-right: 70px;
-  margin-bottom: 15px;
+.logos img {
+  max-width: 40%;
+  margin: 20px;
+  padding-bottom: 9px;
+}
+@media (max-width: 800px) {
+  .logos img {
+    max-height: 65px;
+    max-width: 100%;
+  }
 }
 .logos span {
   font-size: 26px;
@@ -355,7 +373,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .header {
   transition: all 0.5s;
-  position:fixed;
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
@@ -364,13 +381,12 @@ h1, h2, h3, h4, h5, h6 {
   /* Toggle Sidebar Button */
   /* Search Bar */
 }
-  .header .toggle-sidebar-btn {
-    font-size: 32px;
-    padding-left: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    margin-right: 140px;
-  }
+.header .toggle-sidebar-btn {
+  font-size: 32px;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #ffffff;
+}
 .header .search-bar {
   min-width: 360px;
   padding: 0 20px;
@@ -426,7 +442,7 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Header Nav
 --------------------------------------------------------------*/
-    .header-nav ul {
+.header-nav ul {
   list-style: none;
 }
 .header-nav > ul {
@@ -446,6 +462,7 @@ h1, h2, h3, h4, h5, h6 {
 .header-nav .nav-profile span {
   font-size: 14px;
   font-weight: 600;
+  color: #fff;
 }
 .header-nav .badge-number {
   position: absolute;
@@ -533,13 +550,12 @@ h1, h2, h3, h4, h5, h6 {
 # Sidebar
 --------------------------------------------------------------*/
 .sidebar {
-  height: 100%;
-  position: absolute;
-  top: 70px;
+  position: fixed;
+  top: 87px;
   left: 0;
   bottom: 0;
   width: 300px;
-  /*z-index: 996;*/
+  z-index: 996;
   transition: all 0.3s;
   padding: 20px;
   overflow-y: auto;
@@ -548,9 +564,23 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
 }
+.sidebarbutton {
+  position: fixed;
+  top: 80px;
+  left:360px;
+  bottom: 0;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+ 
+}
 @media (max-width: 1199px) {
   .sidebar {
-    left: -300px;
+    left:-300px;
+  }
+  .sidebarbutton{
+      left:0px;
   }
 }
 .sidebar::-webkit-scrollbar {
@@ -561,10 +591,16 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar::-webkit-scrollbar-thumb {
   background-color: #aab7cf;
 }
+.sidebar.active {
+  left: 0;
+}
 
 @media (min-width: 1200px) {
-  #main, .footer {
+  #main, #footer {
     margin-left: 300px;
+  }
+  .sidebarbutton {
+    display: none;
   }
 }
 @media (max-width: 1199px) {
@@ -573,7 +609,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @media (min-width: 1200px) {
-  .toggle-sidebar #main, .toggle-sidebar .footer {
+  .toggle-sidebar #main, .toggle-sidebar #footer {
     margin-left: 0;
   }
   .toggle-sidebar .sidebar {
@@ -1067,19 +1103,18 @@ h1, h2, h3, h4, h5, h6 {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  background-color: #010351;
-  right: 0;
-  position: fixed;
-  max-width: 100%;
-  width: 100%;
-   bottom: 0; 
   padding: 20px 0;
   font-size: 14px;
   transition: all 0.3s;
-  border-top: 1px solid;
+  border-top: 1px solid #cddfff;
 }
-  .footer .copyright {
-    text-align: center;
-    color: #fff;
-  }
-
+.footer .copyright {
+  text-align: center;
+  color: #012970;
+}
+.footer .credits {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: #012970;
+}

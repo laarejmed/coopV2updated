@@ -1,0 +1,405 @@
+{
+  "accueil": "Inicio",
+  "a_propos": "Acerca de",
+  "services": "Servicios",
+  "galerie": "Galería",
+  "contact": "Contacto",
+  "mosquees": "Mezquitas",
+  "se_connecter": "Iniciar sesión",
+  "dashboard": "Panel de control",
+  "register": "Registro",
+  "existemosquee": "Aún no hay asignación de mezquita en tu cuenta",
+  "search": "buscar",
+  "facture": "Factura",
+  "Upload": "Subir el archivo PDF de la factura :",
+  "Login_link": "¿Ya registrado? Haga clic para iniciar sesión",
+  "Enter_name": "Ingrese su nombre",
+  "Enter_firstname": "Ingrese su nombre de pila",
+  "Email_recovery": "Ingrese el correo electrónico de recuperación",
+  "global_community": "Comunidad global",
+  "Mosque": "Mezquita",
+  "Man": "Hombre",
+  "Woman": "Mujer",
+  "required_firstname": "Se requiere el nombre.",
+  "required_lastname": "Se requiere el apellido.",
+  "required_email": "Se requiere una dirección de correo electrónico.",
+  "required_password": "Se requiere una contraseña.",
+  "newuser": "¿Nuevo usuario? Haga clic para registrarse",
+  "mosqueecandidature": "Solicitar una mezquita",
+  "apply": "Postularse",
+  "Consulter les candidatures": "Ver aplicaciones",
+  "Register as Imam": "Regístrese como Imam",
+  "Adherent": "Miembro",
+  "Candidature": "Candidatura",
+  "Contacts": "Contactos",
+  "Autres": "Otros",
+  "mosquee": "Mezquita",
+  "title": "Título",
+  "type": "Tipo",
+  "designation": "Designación",
+  "amount": "Monto",
+  "date": "Fecha",
+  "status": "Estado",
+  "actions": "Acciones",
+  "Valider": "Validado",
+  "En Attente": "Pendiente",
+  "Donation_fields": "¡Complete todos los campos y vuelva a intentarlo!",
+  "donate": "Hacer una donación",
+
+
+  "main": {
+    "candidaturesList": "Lista de candidaturas"
+  },
+  "columns": {
+    "candidatureId": "ID de candidatura",
+    "mosqueName": "Nombre de la mezquita",
+    "numberOfVotes": "Número de votos",
+    "date": "Fecha",
+    "status": {
+      "accepted": "Aceptada",
+      "pending": "Pendiente",
+      "rejected": "Rechazado"
+
+    }
+
+  },
+
+  "homepage": {
+    "text1": "Administra tus mezquitas con",
+    "text2": "Solución Chafaf",
+    "text3": "Herramienta transparente para la gestión financiera y administrativa de todos los centros islámicos.",
+    "text4": "Empezar",
+    "text5": "Sobre Nosotros: ",
+    "text6": "CHAFAF es un sistema de gestión financiera para mezquitas y centros islámicos que proporciona una visión clara y transparente de sus gastos y donaciones.",
+    "text7": "Inversiones: ",
+    "text8": "Cuanto más invertimos, más ayudamos a mejorar las instalaciones y servicios necesarios para la comodidad de los usuarios.",
+    "text9": "Mezquitas: ",
+    "text10": "Localiza todas las mezquitas en un mapa para una visibilidad clara y un acceso fácil.",
+    "text11": "Donaciones: ",
+    "text12": "La recolección de donaciones ayuda a construir y mantener las mezquitas.",
+    "text13": "Perfil",
+    "text14": "Elige tu perfil",
+    "text15": "Colaborador con capital que busca promover el desarrollo de mezquitas y centros islámicos.",
+    "text16": "Inversionista",
+    "text17": "Al hacer una donación, ayudas a la prosperidad de las mezquitas y centros islámicos, brindándoles un apoyo indispensable.",
+    "text18": "Donante",
+    "text19": "Gestión de un espacio pacífico con una mentalidad abierta y preservación de los principios éticos islámicos, incluida la tolerancia y la paz.",
+    "text20": "Líder de la Mezquita",
+    "text21": "Servicios",
+    "text22": "Inversiones",
+    "text23": "La inversión es un medio para lograr objetivos bien definidos: construir una cartera, ayudar en la construcción y restauración de mezquitas y centros islámicos, o generar ingresos adicionales.",
+    "text24": "Acceso a préstamos sin intereses.",
+    "text25": "Carnicería halal.",
+    "text26": "Librería islámica.",
+    "text27": "Centro de aprendizaje del Corán.",
+    "text28": "A través de CHAFAF, nuestro objetivo es proporcionarte servicios mejorados y garantizar una mayor rentabilidad en varios establecimientos socio-islámicos.",
+    "text29": "Donaciones",
+    "text30": "Las donaciones desempeñan un papel vital en la creación y mantenimiento de vínculos sociales. Ayuda a los necesitados y fomenta la solidaridad, reflejando bondad y generosidad.",
+    "text31": "La generosidad no se trata solo de ayudar a los demás, sino también de cuidar de uno mismo. Tus donaciones nos permiten cumplir nuestros objetivos, especialmente en la preservación de los lugares de culto para los musulmanes y su papel espiritual en la vida musulmana.",
+    "text32": "Con CHAFAF, te aseguramos un proceso de donación seguro.",
+    "text33": "Gastos",
+    "text34": "Es crucial planificar y gestionar los gastos de manera rigurosa. CHAFAF facilitará la planificación de los gastos de tu mezquita, permitiendo una gestión financiera más efectiva y garantizando la viabilidad de tus planes.",
+    "text35": "Gastos fijos .",
+    "text36": "Gastos adicionales .",
+    "text37": "¿Eres líder de una mezquita?",
+    "text38": "Crear un proceso de presupuesto es la forma más eficiente de mantener tus gastos bajo control.",
+    "text39": "Nuestra galería",
+    "text42": "¿Eres un Imam?",
+    "text43": "Regístrate ahora para conectarte con la comunidad y gestionar tu perfil.",
+    "text44": "Elige la cantidad, realiza pagos con tarjeta de débito y ten la seguridad de que todas las donaciones se registran para garantizar la transparencia y la trazabilidad de los fondos.",
+    "text45": "Planificación sencilla",
+    "text46": "Seguimiento de gastos",
+    "text47": "Visualización de datos financieros",
+
+    "text41": "Continuar",
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "questions": "Preguntas frecuentes"
+    },
+    "faqList": [
+      {
+        "question": "¿Por qué CHAFAF?",
+        "answer": "Una visión clara de las mezquitas en un mapa.<br />Realiza tus transacciones de manera simple y segura.<br />Contribuye al desarrollo de tus mezquitas y centros islámicos."
+      },
+      {
+        "question": "¿Cómo convertirse en colaborador?",
+        "answer": "Simplemente debes ir a la sección de Contacto, completar el formulario y ponerte en contacto con el líder de la mezquita."
+      },
+      {
+        "question": "¿Puedo hacer una donación manual?",
+        "answer": "Sí, es obviamente posible. Solo necesitas ponerte en contacto con el líder de la mezquita correspondiente o visitar la mezquita en persona."
+      },
+      {
+        "question": "¿Cómo hacer una donación en línea?",
+        "answer": "Completa el formulario de donación especificando las mezquitas o centros para los cuales deseas hacer una donación y luego realiza el pago."
+      }
+    ],
+    "contact": {
+      "title": "Contacto",
+      "subtitle": "Contáctanos",
+      "info": {
+        "address": {
+          "label": "Ubicación:",
+          "value": "Edificio Hay el Quods, Piso 1, Apartamento 2, Oujda 60060"
+        },
+        "email": {
+          "label": "Email:",
+          "value": "infos.chafaf@gmail.com"
+        },
+        "phone": {
+          "label": "Teléfono:",
+          "value": "(+212) 708075570"
+        }
+      },
+      "form": {
+        "to": "Para",
+        "email": "Tu correo electrónico",
+        "subject": "Asunto",
+        "options": {
+          "admin": "Administración",
+          "mosq": "Mezquita"
+        },
+        "message": "Mensaje",
+        "sendButton": "Enviar Mensaje"
+
+      }
+    }
+  },
+
+  "solution_digital": "Solución Digital Transparente para la Gestión de Mezquitas.",
+  "address_line1": "Hay el Quods Edificio Serghini Piso 1,",
+  "address_line2": "Apartamento 2, Oujda 60060",
+  "phone": "Teléfono",
+  "email": "Email",
+  "liens_utiles": "Enlaces útiles",
+  "acceuil": "Inicio",
+  "Importer": "Importar",
+  "Exporter": "Exportar",
+  "Choisir un fichier :": "escoge un archivo",
+
+
+  "nos_services": "Nuestros Servicios",
+  "investissements": "Inversiones",
+  "depenses": "Gastos",
+  "donation": "Donación",
+  "our_newsletter": "Nuestro Boletín",
+  "s_abonner": "Suscribirse",
+  "all_rights_reserved": "Todos los derechos reservados",
+  "verify_email_password_recovery": "¡Verifica tu correo electrónico para recuperar tu contraseña!",
+  "error_occurred": "¡Se produjo un error!",
+  "forgot_password": "Contraseña olvidada",
+
+  "enter_recovery_email": "Ingresa el correo electrónico de recuperación",
+  "recover": "Recuperar",
+  "login": "Iniciar sesión",
+  "email_address": "Dirección de correo electrónico",
+  "enter_email_address": "Ingrese su dirección de correo electrónico",
+  "password": "Contraseña",
+  "enter_password": "Ingrese su contraseña",
+  "remember_me": "Recordarme",
+  "forgot_password2": "¿Olvidaste tu contraseña?",
+  "mosque_details": "Detalles de la Mezquita",
+  "mosques": "Mezquitas",
+  "total_donations": "Donaciones Totales",
+  "total_expenses": "Gastos Totales",
+  "within_the_last": "En los Últimos",
+  "last_3_months": "Últimos 3 Meses",
+  "last_6_months": "Últimos 6 Meses",
+  "last_12_months": "Últimos 12 Meses",
+  "details": "Detalles",
+  "close": "Cerrar",
+  "logo_alt_text": "Logo",
+  "reset_password": "Restablecer contraseña",
+  "confirm_password": "Confirmar contraseña",
+  "validate": "Validar",
+
+  "depense": "Gastos",
+  "total_depenses": "Total de Gastos",
+  "add": "Agregar",
+  "edit": "Editar",
+  "delete": "Eliminar",
+  "cancel": "Cancelar",
+  "mosquee": "Mezquita",
+  "title": "Título",
+  "designation": "Designación",
+  "type": "Tipo",
+  "choose_type": "Seleccionar Tipo",
+  "montant": "Monto",
+  "date": "Fecha",
+  "status": "Estado",
+  "actions": "Acciones",
+  "all_depenses": "Todos los Gastos",
+  "ajouter_depense": "Agregar Gasto",
+  "modifier_depense": "Editar Gasto",
+  "validate_depense": "Validar Gasto",
+  "validate_depense_question": "¿Desea validar este gasto?",
+  "cannot_undo": "Esta acción no se puede deshacer.",
+  "delete_depense": "Eliminar Gasto",
+  "delete_depense_question": "¿Realmente desea eliminar este gasto?",
+  "breadcrumb_dashboard": "Tablero",
+  "breadcrumb_depenses": "Gastos",
+  "total_dep": "Total de Gastos: {{totalDep}} €",
+  "toutes_depenses": "Todos los Gastos",
+  "modal_close": "Cerrar",
+  "modal_save": "Guardar",
+
+  "Dons": "Donaciones",
+  "Total des dons": "Total de donaciones",
+  "Tous les dons": "Todas las donaciones",
+  "Ajouter": "Agregar",
+  "Modifier": "Modificar",
+  "Valider": "Validar",
+  "En Attente": "Pendiente",
+  "Supprimer": "Eliminar",
+  "Ajouter un don": "Agregar una donación",
+  "Modifier un don": "Modificar una donación",
+  "Validation du don": "Validación de donación",
+  "Voulez-vous valider ce don?": "¿Desea validar esta donación?",
+  "Cette action ne peut pas être annulée.": "Esta acción no se puede deshacer.",
+  "Supprimer un don": "Eliminar una donación",
+  "Voulez-vous vraiment supprimer ce don?": "¿Desea eliminar esta donación?",
+  "Annuler": "Cancelar",
+  "Titre": "Título",
+  "Type": "Tipo",
+  "Montant": "Monto",
+  "Choisir le type de dons": "Elegir el tipo de donación",
+  "Mosquée": "Mezquita",
+  "Date": "Fecha",
+  "Status": "Estado",
+  "Actions": "Acciones",
+  "graphes": "Gráficos",
+
+
+  "crudOption": "Operación CRUD completada",
+  "Une erreur s'est produite !": "¡Se produjo un error!",
+  "Mosquées": "Mezquitas",
+  "Dashboard": "Tablero",
+  "Toutes les mosquées": "Todas las mezquitas",
+  "Nom de mosquée": "Nombre de la mezquita",
+  "Adresse": "Dirección",
+  "Total des dépenses": "Total de gastos",
+  "Ajouter une mosquée": "Agregar una mezquita",
+  "Modifier une mosquée": "Modificar una mezquita",
+  "Chef de la Mosquee": "Líder de la mezquita",
+  "Validation de suppression": "Validación de eliminación",
+  "Êtes-vous sûr de vouloir supprimer cette mosquée ?": "¿Estás seguro de que deseas eliminar esta mezquita?",
+  "deconnecter": "Cerrar sesión",
+  "monprofil": "Mi perfil",
+
+  "Chefs des mosquées": "Chefs de mezquita",
+  "Tous les chefs des mosquées": "Todos los chefs de mezquita",
+  "Une erreur s'est produite": "Se ha producido un error",
+  "Modifier le chef d'une mosquée": "Modificar el chef de una mezquita",
+  "Nom": "Nombre",
+  "Prénom": "Apellido",
+  "Email": "Correo electrónico",
+  "Ajouter un chef de mosquée": "Agregar un chef de mezquita",
+  "Mot de passe": "Contraseña",
+  "Confirmer le mot de passe": "Confirmar contraseña",
+  "Choisir une mosquée": "Elegir una mezquita",
+  "Supprimer un chef de mosquée": "Eliminar un chef de mezquita",
+  "Voulez-vous vraiment supprimer ce chef?": "¿Realmente quieres eliminar a este chef?",
+  "horairepriere": "Today's Prayer Timetable",
+  "pavenir": "Upcoming Prayer",
+
+  "Profil": "Perfil",
+  "Aperçu": "Visión general",
+  "Changer votre email": "Cambiar su correo electrónico",
+  "Changer votre mot de passe": "Cambiar su contraseña",
+  "Détails du profil": "Detalles del perfil",
+  "Nom et Prénom": "Nombre y Apellido",
+  "Adresse de mosquée": "Dirección de mezquita",
+  "Nouveau Email": "Nuevo Email",
+  "Ré-entrez le nouveau Email": "Vuelva a ingresar el nuevo Email",
+  "Sauvegarder": "Guardar",
+  "Mot de passe actuel": "Contraseña actual",
+  "Nouveau mot de passe": "Nueva contraseña",
+  "Ré-entrez le nouveau mot de passe": "Vuelva a ingresar la nueva contraseña",
+  "Changer le mot de passe": "Cambiar la contraseña",
+  "candidatures": "aplicacionesver aplicaciones",
+
+  "Dépenses": "Gastos",
+  "Consulter les dépenses": "Ver gastos",
+  "Consulter les dons": "Ver donaciones",
+  "Graphes": "Gráficos",
+  "Consulter les graphes": "Ver gráficos",
+  "Consulter la liste des mosquées": "Ver lista de mezquitas",
+  "selectlanguage": "Seleccione el idioma",
+  "English": "Inglés",
+  "French": "Francés",
+  "German": "Alemán",
+  "Spanish": "Español",
+  "Chef": "Jefe",
+  "Titre Don": "Donación de títulos",
+  "Mosquee": "Mezquita",
+  "Designation": "Designación",
+  "En Attente ": "A la espera",
+  "DateValidation": "Validación de fecha",
+  "Statu": "Estado",
+  "Titre Depense": "Gastos de título",
+  "Valider par": "Validar por",
+  "CompteAdhérent": "Cuenta de Afiliado",
+  "dropdownselect": "Seleccione un valor de la lista desplegable",
+
+  "Home": "Inicio",
+  "Personal Information": "Información Personal",
+  "First Name": "Nombre",
+  "Last Name": "Apellido",
+  "Your Photo:": "Tu Foto:",
+  "Password": "Contraseña",
+  "Telephone": "Teléfono",
+  "Birth Date": "Fecha de Nacimiento",
+  "Origin": "Origen",
+  "Residence": "Residencia",
+  "Next": "Siguiente",
+  "Account Information": "Información de la Cuenta",
+  "Select an education level": "Seleccionar un nivel de educación",
+  "No Formal Education": "Sin Educación Formal",
+  "Elementary School": "Escuela Primaria",
+  "Middle School": "Escuela Secundaria",
+  "High School": "Escuela Preparatoria",
+  "Associate's Degree": "Grado de Asociado",
+  "Bachelor's Degree": "Licenciatura",
+  "Master's Degree": "Maestría",
+  "Doctoral Degree": "Doctorado",
+  "Experience Level": "Nivel de Experiencia",
+  "Expertise": "Especialidad",
+  "Curriculum Vitae:": "Currículum Vitae:",
+  "Back": "Atrás",
+  "Submit": "Enviar",
+
+
+  "Téléphone": "Teléfono",
+  "Votre Téléphone": "Su Teléfono",
+
+  "required_Téléphone": "Se requiere el teléfono.",
+  "communaute_globale": "Comunidad Global",
+  "required": "obligatorio"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

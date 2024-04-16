@@ -1,0 +1,371 @@
+{
+  "accueil": "Accueil",
+  "a_propos": "A propos",
+  "services": "Services",
+  "galerie": "Galerie",
+  "contact": "Contact",
+  "mosquees": "Mosquées",
+  "se_connecter": "Se connecter",
+  "dashboard": "Tableau de bord",
+  "register": "S'inscrire",
+  "existemosquee": "Il n'y a pas encore d'attribution de mosquée dans votre compte",
+  "search": "rechercher",
+  "candidatures": "Candidatures",
+  "Register as Imam": "Inscrivez-vous en tant qu'Imam",
+  "Login_link": "Déjà inscrit ? Cliquez pour login",
+  "Enter_name": "Entrez votre nom",
+  "Enter_firstname": "Entrez votre prénom",
+  "Email_recovery": "Entrez l'email de récupération",
+  "required_firstname": "Le prénom est requis.",
+  "required_lastname": "Le nom est requis.",
+  "required_email": "L'adresse e-mail est requise.",
+  "required_password": "Le mot de passe est requis.",
+  "global_community": "Communauté globale",
+  "Mosque": "Mosquée",
+  "Man": "Homme",
+  "Woman": "Femme",
+  "Adherent": "Adhérent",
+  "CompteAdhérent": "Compte Adhérent",
+  "dropdownselect": "Sélectionnez une valeur dans la liste déroulante",
+  "required": "requis",
+
+  "Nom": "Nom de famille",
+  "Prénom": "Prénom",
+  "email_address": "Adresse e-mail",
+  "enter_email_address": "Entrez votre adresse e-mail",
+  "password": "Mot de passe",
+  "enter_password": "Entrez votre mot de passe",
+  "Téléphone": "Numéro de téléphone",
+  "Votre Téléphone": "Votre numéro de téléphone",
+
+  "required_Téléphone": "Le numéro de téléphone est requis.",
+  "communaute_globale": "Communauté Globale",
+  "Mosquee": "Mosquée",
+
+
+
+
+  "Candidature": "Candidature",
+  "Contacts": "Contacts",
+  "Autres": "Autres",
+  "mosquee": "Mosquée",
+  "title": "Titre",
+  "type": "Type",
+  "designation": "Désignation",
+  "amount": "Montant",
+  "date": "Date",
+  "facture": "Facture",
+  "status": "Statut",
+  "actions": "Actions",
+  "newuser": "Nouveau utilisateur ? Cliquez pour vous inscrire",
+  "apply": "Candidater",
+  "Consulter mes candidatures": "Consulter mes candidatures",
+  "Donation_fields": "Remplissez tous les champs et réessayez !",
+  "donate": "Faire un don",
+
+
+  "main": {
+    "candidaturesList": "Liste des candidatures"
+  },
+  "columns": {
+    "candidatureId": "ID de candidature",
+    "mosqueName": "Nom de la mosquée",
+    "numberOfVotes": "Nombre de votes",
+    "date": "Date",
+    "status": {
+      "accepted": "Acceptée",
+      "pending": "En attente",
+      "rejected": "Rejeté"
+
+    }
+  },
+
+  "mosqueecandidature": "Faire une candidature pour une mosquée",
+
+  "homepage": {
+    "text1": "Gérer vos mosquées avec",
+    "text2": "Chafaf Solution",
+    "text3": "Outil transparent de gestion financière et administrative de tous les centres islamiques.",
+    "text4": "Commencer",
+    "text5": "A propos de nous",
+    "text6": "CHAFAF est un système de gestion financière des mosquées et des centres islamiques pour une vision transparente et claire des dépenses et des dons de ces derniers.",
+    "text7": "Investisements ",
+    "text8": "Plus nous investissons, plus nous aidons à améliorer les établissements et les services nécessaires pour le confort des utilisateurs.",
+    "text9": "Mosquées",
+    "text10": "Géo-localiser toutes les mosquées sur carte pour une visibilité claire et trouver l’emplacement sans difficulté.",
+    "text11": "Dons",
+    "text12": "Collecter des dons permet de construire et faire vivre des mosquées.",
+    "text13": "Profil",
+    "text14": "Choisir votre profil",
+    "text15": "Collaborateur avec un capital qui cherche à favoriser le développement des mosquées et centres islamiques.",
+    "text16": "Investisseur",
+    "text17": "En faisant un don, vous aidez à la prospérité des mosquées et des centres islamiques, et vous leur apportez donc un soutien indispensable.",
+    "text18": "Donneur",
+    "text19": "Gérer un espace pacifique avec esprit ouvert et préservation des principes de la déontologie islamique basée notamment sur la tolérance et la paix.",
+    "text20": "Chef d'une mosquée",
+    "text21": "Services",
+    "text22": "Investissements",
+    "text23": "L'investissement est un moyen de répondre à des objectifs bien définis: bénéficier d'un patrimoine, aider à la réalisation et à la reconstitution des mosquées et des centres islamiques, ou encore faire un complément de revenu.",
+    "text24": "Bénéficier des crédits sans AL RIBA.",
+    "text25": "Boucherie HALAL.",
+    "text26": "Librairie islamique.",
+    "text27": "Centre pour apprendre le Quran.",
+    "text28": "Via CHAFAF nous visualisons beaucoup plus pour votre confort afin de contribuer à nos mosquées.",
+    "text29": "Dons",
+    "text30": "Le don est plus largement essentiel à la création et à l'entretien du lien social, cette action permet d'aider les nécessiteux, faire appel à la solidarité, c'est un signe de bonté et de générosité.",
+    "text31": "Être généreux, ce n'est pas seulement aider les autres. C'est aussi prendre soin de soi-même. En effet, grâce à vos dons et générosités que nous pouvons atteindre au but escompté principalement en matière de préservation des lieux de culte pour les musulmans ainsi que leur rôle dans la vie spirituelle des musulmans.",
+    "text32": "CHAFAF donc vous assure de réaliser cette opération en toute sécurité.",
+    "text33": "Dépenses",
+    "text34": "Il est essentiel de planifier et de gérer de façon serrée ses dépenses. Chafaf vous facilitera la planification des dépenses de votre mosquée afin de gérer la situation financière de façon plus efficace et garantir que vos plans soient réalisables.",
+    "text35": "Dépenses fixes.",
+    "text36": "Dépenses extra.",
+    "text37": "Vous êtes un chef de mosquée ?",
+    "text38": "La création d'un processus budgétaire est le moyen le plus efficace pour que la gestion de vos dépenses reste sur la bonne voie.",
+    "text39": "notre galerie",
+    "text40": "",
+    "text42": "Êtes-vous un Imam ?",
+    "text43": "Inscrivez-vous dès maintenant pour vous connecter avec la communauté et gérer votre profil.",
+    "text44": "Choisissez le montant, effectuez des paiements par carte de débit et soyez assuré que toutes les donations sont enregistrées pour la transparence et la traçabilité des fonds.",
+    "text45": "Planification facile",
+    "text46": "Suivi des dépenses",
+    "text47": "Visualisation des données financières",
+
+
+    "text41": "Continuer",
+    "faq": {
+      "title": "F.A.Q",
+      "questions": "Questions Fréquemment Posées"
+    },
+    "faqList": [
+      {
+        "question": "Pourquoi CHAFAF ?",
+        "answer": "Une vision claire des mosquées sur carte.<br />Effectuez vos transactions d’une manière simple et en toute sécurité.<br />Contribuez vous-même au développement de vos mosquées et vos centres islamiques."
+      },
+      {
+        "question": "Comment devenir un collaborateur ?",
+        "answer": "Vous devez tout simplement aller à la rubrique Contact, remplir le formulaire et contacter le chef de la mosquée."
+      },
+      {
+        "question": "Puis-je faire un don manuel ?",
+        "answer": "Oui, c’est évidemment faisable. Vous devez juste aller contacter le chef de la mosquée concerné ou sur place ( la mosquée )."
+      },
+      {
+        "question": "Comment faire un don électronique?",
+        "answer": "Veuillez remplir le formulaire des dons en précisant les mosquées ou les centres pour lesquels vous souhaitez faire un don puis vous procédez au paiement."
+      }
+    ],
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Nous Contacter",
+      "info": {
+        "address": {
+          "label": "Emplacement:",
+          "value": "Hay el Quods Batiment Serghini Etage 1, Appartement 2, Oujda 60060"
+        },
+        "email": {
+          "label": "Email:",
+          "value": "infos.chafaf@gmail.com"
+        },
+        "phone": {
+          "label": "Tel:",
+          "value": "(+212) 708075570"
+        }
+      },
+      "form": {
+        "to": "A",
+        "email": "Votre Email",
+        "subject": "Sujet",
+        "options": {
+          "admin": "Administration",
+          "mosq": "Mosquée"
+        },
+        "message": "Message",
+        "sendButton": "Envoyer le Message"
+      }
+    }
+  },
+  "solution_digital": "Solution digitale transparente pour la gestion des Mosquées.",
+  "address_line1": "Hay el Quods Batiment Serghini Etage 1,",
+  "address_line2": "Appartement 2, Oujda 60060",
+  "phone": "Téléphone",
+  "email": "Email",
+  "liens_utiles": "Liens utiles",
+  "acceuil": "Accueil",
+  "nos_services": "Nos Services",
+  "investissements": "Investissements",
+  "depenses": "Dépenses",
+  "donation": "Donation",
+  "our_newsletter": "Notre Newsletter",
+  "s_abonner": "S'abonner",
+  "all_rights_reserved": "Tous les droits sont réservés",
+  "verify_email_password_recovery": "Vérifiez votre email pour récupérer votre mot de passe !",
+  "error_occurred": "Une erreur s'est produite !",
+  "forgot_password": "Mot de passe oublié",
+  "enter_recovery_email": "Entrer l'email de récupération",
+  "recover": "Récupérer",
+
+  "login": "Connexion",
+  "email_address": "Adresse Email",
+  "enter_email_address": "Entrer votre adresse email",
+  "password": "Mot de passe",
+  "enter_password": "Entrer le mot de passe",
+  "remember_me": "Se souvenir de moi",
+  "forgot_password2": "Mot de passe oublié",
+  "mosque_details": "Détails des Mosquées",
+  "mosques": "Mosquées",
+  "total_donations": "Total des Dons",
+  "total_expenses": "Total des Dépenses",
+  "within_the_last": "Dans les",
+  "last_3_months": "3 derniers mois",
+  "last_6_months": "6 derniers mois",
+  "last_12_months": "12 derniers mois",
+  "details": "Détails",
+  "close": "Fermer",
+  "logo_alt_text": "Logo",
+  "reset_password": "Réinitialiser le mot de passe",
+  "confirm_password": "Confirmer le mot de passe",
+  "validate": "Valider",
+
+  "Dons": "Donations",
+  "Total des dons": "Total des dons",
+  "Tous les dons": "Tous les dons",
+  "Ajouter": "Ajouter",
+  "Modifier": "Modifier",
+  "Valider": "Validé",
+  "En Attente": "En Attente",
+  "Supprimer": "Supprimer",
+  "Ajouter un don": "Ajouter un don",
+  "Modifier un don": "Modifier un don",
+  "Validation du don": "Validation du don",
+  "Voulez-vous valider ce don?": "Voulez-vous valider ce don ?",
+  "Cette action ne peut pas être annulée.": "Cette action ne peut pas être annulée.",
+  "Supprimer un don": "Supprimer un don",
+  "Voulez-vous vraiment supprimer ce don?": "Voulez-vous vraiment supprimer ce don ?",
+  "Annuler": "Annuler",
+  "Titre": "Titre",
+  "Type": "Type",
+  "Montant": "Montant",
+  "Choisir le type de dons": "Choisir le type de dons",
+  "Mosquée": "Mosquée",
+  "Date": "Date",
+  "Status": "Statut",
+  "Actions": "Actions",
+  "graphes": "Graphes",
+
+  "crudOption": "Opération CRUD effectuée",
+  "Une erreur s'est produite !": "Une erreur s'est produite !",
+  "Mosquées": "Mosquées",
+  "Dashboard": "Tableau de bord",
+  "Toutes les mosquées": "Toutes les mosquées",
+  "Nom de mosquée": "Nom de mosquée",
+  "Adresse": "Adresse",
+  "Total des dépenses": "Total des dépenses",
+  "Ajouter une mosquée": "Ajouter une mosquée",
+  "Modifier une mosquée": "Modifier une mosquée",
+  "Chef de la Mosquee": "Chef de la Mosquée",
+  "Validation de suppression": "Validation de suppression",
+  "Êtes-vous sûr de vouloir supprimer cette mosquée ?": "Êtes-vous sûr de vouloir supprimer cette mosquée ?",
+  "deconnecter": "Se déconnecter",
+  "monprofil": "Mon profil",
+
+  "Chefs des mosquées": "Chefs de mosquée",
+  "Tous les chefs des mosquées": "Tous les chefs de mosquée",
+  "Une erreur s'est produite": "Une erreur s'est produite",
+  "Modifier le chef d'une mosquée": "Modifier le chef d'une mosquée",
+  "Nom": "Nom",
+  "Prénom": "Prénom",
+  "Email": "Email",
+
+  "Ajouter un chef de mosquée": "Ajouter un chef de mosquée",
+  "Mot de passe": "Mot de passe",
+  "Confirmer le mot de passe": "Confirmer le mot de passe",
+  "Choisir une mosquée": "Choisir une mosquée",
+  "Supprimer un chef de mosquée": "Supprimer un chef de mosquée",
+  "Voulez-vous vraiment supprimer ce chef?": "Voulez-vous vraiment supprimer ce chef?",
+  "horairepriere": "Horaire de Prière D'aujourd'hui",
+  "pavenir": "Prière à Venir",
+
+  "Profil": "Profil",
+  "Aperçu": "Aperçu",
+  "Changer votre email": "Changer votre email",
+  "Changer votre mot de passe": "Changer votre mot de passe",
+  "Détails du profil": "Détails du profil",
+  "Nom et Prénom": "Nom et Prénom",
+  "Adresse de mosquée": "Adresse de mosquée",
+  "Nouveau Email": "Nouveau Email",
+  "Ré-entrez le nouveau Email": "Ré-entrez le nouveau Email",
+  "Sauvegarder": "Sauvegarder",
+  "Mot de passe actuel": "Mot de passe actuel",
+  "Nouveau mot de passe": "Nouveau mot de passe",
+  "Ré-entrez le nouveau mot de passe": "Ré-entrez le nouveau mot de passe",
+  "Changer le mot de passe": "Changer le mot de passe",
+
+  "Dépenses": "Dépenses",
+  "Consulter les dépenses": "Consulter les dépenses",
+  "Consulter les dons": "Consulter les dons",
+  "Graphes": "Graphes",
+  "Consulter les graphes": "Consulter les graphes",
+  "Consulter la liste des mosquées": "Consulter la liste des mosquées",
+  "selectlanguage": "Choisir la langue",
+  "English": "Anglais",
+  "French": "Français",
+  "German": "Allemand",
+  "Spanish": "Espagnol",
+  "Importer": "Importer",
+  "Exporter": "Exporter",
+  "Chef": "Chef",
+  "Mosquee": "Mosquee",
+  "Titre Don": "Titre Don",
+  "Designation": "Designation",
+  "DateValidation": "DateValidation",
+  "Statu": "Statu",
+  "Titre Depense": "Titre Depense",
+  "Valider par": "Valider par",
+  "paypal": "Paiement réussi ! Identifiant de transaction:",
+  "Upload": "Téléchargement du fichier PDF de la facture :",
+
+  "Home": "Accueil",
+  "Personal Information": "Informations Personnelles",
+  "First Name": "Prénom",
+  "Last Name": "Nom de famille",
+  "Your Photo:": "Votre photo :",
+  "Password": "Mot de passe",
+  "Telephone": "Téléphone",
+  "Birth Date": "Date de naissance",
+  "Origin": "Origine",
+  "Residence": "Résidence",
+  "Next": "Suivant",
+  "Account Information": "Informations sur le compte",
+  "Select an education level": "Sélectionner un niveau d'éducation",
+  "No Formal Education": "Pas de formation formelle",
+  "Elementary School": "École primaire",
+  "Middle School": "Collège",
+  "High School": "Lycée",
+  "Associate's Degree": "Diplôme d'associé",
+  "Bachelor's Degree": "Licence",
+  "Master's Degree": "Master",
+  "Doctoral Degree": "Doctorat",
+  "Experience Level": "Niveau d'expérience",
+  "Expertise": "Expertise",
+  "Curriculum Vitae:": "Curriculum Vitae :",
+  "Back": "Retour",
+  "Submit": "Soumettre"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
