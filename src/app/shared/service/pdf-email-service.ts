@@ -40,7 +40,8 @@ export class PdfEmailService {
   onFileDropped(pdfFile:FileList){
     this.pdfFile=pdfFile.item(0);
   }
-  sendEmailWithPdf(){
+
+  sendEmailWithPdf(userEmail: string, url){
     const formData=new FormData();
     formData.append('email',this.email);
     formData.append('pdf',this.pdfFile);

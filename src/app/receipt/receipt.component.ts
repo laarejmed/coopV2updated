@@ -22,11 +22,10 @@ export class ReceiptComponent implements OnInit {
     try {
       await this.transactionService.validateTransaction(transactionData).toPromise();
       const pdf = await this.pdfEmailService.generatePdf(transactionData).toPromise();
-      const response = await this.pdfEmailService.sendEmailWithPdf(userEmail, pdf.url).toPromise();
-      console.log('E-mail envoyé avec succès:', response);
+      const response = await this.pdfEmailService.sendEmailWithPdf(userEmail, pdf.url);
+      console.log('E-mail envoyé avec succès :', response);
     } catch (error) {
-      // Gérer les erreurs
-      console.error('Une erreur est survenue:', error);
+      console.error('Une erreur est survenue :', error);
       throw error;
     }
   }
