@@ -13,7 +13,6 @@
       <button (click)="setFilterMode('Mois')">Mois</button>
       <button (click)="setFilterMode('Annee')">Annee</button>
     </div> -->
-    <canvas id="canvas"></canvas>
     <canvas [ngStyle]="{ 'display': (isConnected && hasAdminRole && switchBtn) ? 'block' : 'none' }" id="adminCanvas"></canvas>
     <canvas [ngStyle]="{ 'display': (isConnected && !hasAdminRole || !switchBtn) ? 'block' : 'none' }" id="canvas"></canvas>
   </div>

@@ -23,6 +23,7 @@ import { CreateuserPopupComponent } from './createuser-popup/createuser-popup.co
 import {TokenInterceptorServiceService} from '../shared/service/token-interceptor-service.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ChartsComponent } from './charts/charts.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient){
     TransactionPopupComponent,
     UserPopupComponent,
     CreateuserPopupComponent,
+    ChartsComponent,
   ],
   imports: [
     CommonModule,

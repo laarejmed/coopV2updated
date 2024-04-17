@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionService } from '../../shared/service/transaction.service';
-import { JwtServiceService } from '../../shared/service/jwt-service.service';
+import { JwtServiceService } from 'src/app/shared/service/jwt-service.service';
+import { TransactionService } from 'src/app/shared/service/transaction.service';
 import { Chart } from 'chart.js';
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  selector: 'app-charts',
+  templateUrl: './charts.component.html',
+  styleUrls: ['./charts.component.css']
 })
-export class ChartComponent implements OnInit {
+export class ChartsComponent implements OnInit {
   dateTransaction: any[] = [];
   transactionsByMonth: any[] = [];
   chart: any;
@@ -217,4 +217,4 @@ export class ChartComponent implements OnInit {
     this.chart.data.datasets[1].data = incomeTransactions;
     this.chart.update();
     }
-  }
+}
