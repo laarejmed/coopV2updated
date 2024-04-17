@@ -1,38 +1,64 @@
-<div class="container" style="width: 80vh;height:60vh;">
-  <form (submit)="onSubmit()">
-    <!-- Name input -->
-    <div class="form-outline mb-4">
-      <label class="form-label" for="name">Apellido</label>
-      <input type="text" id="name" class="form-control" [(ngModel)]="this.userInfo.name" />
-
+<div class="container" style="width: 60vw; height: 60vh;">
+  <form class="login" #registerForm="ngForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="name"
+             #name="ngModel"
+             [(ngModel)]="registerForm.name"
+             placeholder="{{ 'Nombre completo / Apellido' | translate }}" />
+      <small id="name_error" class="form-text text-danger"></small>
     </div>
-    <div class="form-outline mb-4">
-      <label class="form-label" for="socio">Numero Socio</label>
-      <input type="email" id="socio" class="form-control " [(ngModel)]="this.userInfo.socialnumber" />
-
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="phone"
+             #phone="ngModel"
+             [(ngModel)]="registerForm.phone"
+             placeholder="{{ 'Teléfono' | translate }}" />
+      <small id="phone_error" class="form-text text-danger"></small>
     </div>
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-      <label class="form-label" for="email">Email </label>
-      <input type="email" id="email" class="form-control" [(ngModel)]="this.userInfo.email" />
-
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="socialNumber"
+             #socialNumber="ngModel"
+             [(ngModel)]="registerForm.SocialNumber"
+             placeholder="{{ 'Numero de Socio / a' | translate }}" />
+      <small id="socialNumber_error" class="form-text text-danger"></small>
     </div>
-    <div class="form-outline mb-4">
-      <label class="form-label" for="phone">Teléfono</label>
-      <input type="email" id="phone" class="form-control" [(ngModel)]="this.userInfo.phone" />
-
+    <div class="form-group">
+      <input class="form-control mb-3"
+             name="email"
+             #email="ngModel"
+             [(ngModel)]="registerForm.email"
+             placeholder="{{ 'Email' | translate }}" />
+      <small id="email_error" class="form-text text-danger"></small>
     </div>
-
-    <div class="form-outline mb-4">
-      <label class="form-label" for="balance">Saldo</label>
-      <input type="email" id="balance" class="form-control" [(ngModel)]="this.userInfo.balance" />
-
+    <div class="form-group">
+      <input type="password"
+             class="form-control mb-3"
+             [(ngModel)]="registerForm.password"
+             placeholder="{{ 'Contraseña' | translate }}"
+             required />
+      <small id="password_pattern" class="form-text text-warning mt-1">
+        Por favor ingresa la contraseña en el siguiente formato: al menos 8 caracteres, con al menos un mayúscula, un minúscula, un número y un carácter especial!
+        {{ 'Por favor ingresa la contraseña en el siguiente formato: al menos 8 caracteres, con al menos un mayúscula, un minúscula, un número y un carácter especial!' | translate }}
+      </small>
+      <small id="password_error" class="form-text text-danger"></small>
     </div>
-
-
-
-
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-success btn-block mb-4">Save</button>
-  </form>
-  </div>
+    <div class="form-group">
+      <input type="password"
+             class="form-control mb-3"
+             name="confirmPassword"
+             #confirmPassword="ngModel"
+             [(ngModel)]="registerForm.confirmPassword"
+             placeholder="{{ 'Confirmar Contraseña' | translate }}"
+             required />
+      <small id="confirmPassword_error" class="form-text text-danger"></small>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success">
+        <span class="button__text">{{ 'Enviar' | translate }}</span>
+        <i class=" pl1 button__icon fas fa-chevron-right"></i>
+      </button>
+    </div>
+    </form>
+</div>

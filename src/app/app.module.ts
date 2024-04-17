@@ -14,7 +14,6 @@ import {EmailConfirmationComponent} from './email-confirmation/email-confirmatio
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { NotificationComponent } from './notification/notification.component';
-import { ChartComponent } from './dashboard/chart/chart.component';
 import { pipe } from 'rxjs';
 import { NgStyle } from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -34,7 +33,6 @@ export function HttpLoaderFactory(http: HttpClient){
     ResetPasswordComponent,
     ReceiptComponent,
     NotificationComponent,
-    ChartComponent,
     ],
   imports: [
     BrowserModule,
