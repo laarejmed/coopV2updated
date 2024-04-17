@@ -11,6 +11,9 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class TransactionService {
+  effectuerTransaction(montant: number) :Observable<void>{
+    throw new Error("Method not implemented.");
+  }
   readonly baseUrl=environment.apiUrl+'transactions';
   transaction:TransactionModel;
   userService:UserService;
@@ -123,6 +126,24 @@ export class TransactionService {
     const soldeUtilisateur = this.userService.getSoldeUtilisateur();
     const estTransactionPossible = soldeUtilisateur >= montantTransaction;
     return of(estTransactionPossible);
+  }
+  getNumberOfTransactionsByMonth() {
+    return this.http.get<any[]>(this.baseUrl + '/transactions/byMonth');
+  }
+  getNumberOfTransactionsByYear() {
+    return this.http.get<any[]>(this.baseUrl +  '/transactions/byYear');
+  }
+  getNumberOfExpensesByMonth(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/expense/byMonth/${userId}`);
+  }
+  getNumberOfExpensesByYear(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/expense/byYear/${userId}`);
+  }
+  getNumberOfIncomesByMonth(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/income/byMonth/${userId}`);
+  }
+  getNumberOfIncomesByYear(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/income/byYear/${userId}`);
   }
 }
 export interface Transaction {

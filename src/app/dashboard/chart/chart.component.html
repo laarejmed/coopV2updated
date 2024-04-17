@@ -1,0 +1,19 @@
+<div class="container">
+    <br>
+    <h1>{{"Instantánea Financiera" | translate}}</h1>
+    <div class="dropdown">
+      <button class="dropbtn">Filter By</button>
+      <button class="dropbtn">{{"Filtrar por" | translate}}</button>
+      <div class="dropdown-content">
+        <a id="filterMonth" (click)="setFilterMode('Mois')">{{"Mes" | translate}}</a>
+        <a id="filterYear" (click)="setFilterMode('Annee')">{{"Año"  | translate}}</a>
+      </div>
+    </div>
+    <!-- <div>
+      <button (click)="setFilterMode('Mois')">Mois</button>
+      <button (click)="setFilterMode('Annee')">Annee</button>
+    </div> -->
+    <canvas id="canvas"></canvas>
+    <canvas [ngStyle]="{ 'display': (isConnected && hasAdminRole && switchBtn) ? 'block' : 'none' }" id="adminCanvas"></canvas>
+    <canvas [ngStyle]="{ 'display': (isConnected && !hasAdminRole || !switchBtn) ? 'block' : 'none' }" id="canvas"></canvas>
+  </div>

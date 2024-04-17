@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, Pipe} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component'; 
 import {AppRoutingModule} from './app-routing.module';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
@@ -14,6 +14,15 @@ import {EmailConfirmationComponent} from './email-confirmation/email-confirmatio
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { NotificationComponent } from './notification/notification.component';
+import { ChartComponent } from './dashboard/chart/chart.component';
+import { pipe } from 'rxjs';
+import { NgStyle } from '@angular/common';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { MatButtonModule } from '@angular/material/button';
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +33,8 @@ import { NotificationComponent } from './notification/notification.component';
     EmailConfirmationComponent,
     ResetPasswordComponent,
     ReceiptComponent,
-    NotificationComponent
+    NotificationComponent,
+    ChartComponent,
     ],
   imports: [
     BrowserModule,
@@ -33,6 +43,18 @@ import { NotificationComponent } from './notification/notification.component';
     FormsModule,
    // DashboardModule,
     AppRoutingModule,
+    Pipe,
+    NgStyle,
+    NgModule,
+    HttpClientModule,
+    MatButtonModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   bootstrap: [AppComponent],
 })

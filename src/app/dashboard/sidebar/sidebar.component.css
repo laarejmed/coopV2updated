@@ -1,0 +1,27 @@
+.nav-link:hover .sb-nav-link-icon {
+    color: #099446;
+}
+/* Change icon color on link click */
+.nav-link.active .sb-nav-link-icon {
+    color: #099446;
+}
+#MenuButton {
+    border-radius: 43.9px;
+    border: 1px solid #4FD894;
+    border-width: 1px;
+    white-space: nowrap;
+    font-family: "Montserrat", sans-serif;
+    color: #010351;
+  }
+  .custom-button {
+    color: #010351;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .navbar .dropdown ul li {
+    font-family: "Montserrat", sans-serif;
+  }
+  .navbar .dropdown ul li a:hover {
+    color: #FFFFFF !important;
+    /* You can add other styles like background-color or text-decoration if needed */
+  }

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgStyle} from '@angular/common';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './dashboard.component';
 import {UserListComponent} from './user-list/user-list.component';
@@ -17,10 +17,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {TransactionPopupComponent} from './transaction-popup/transaction-popup.component';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import { UserPopupComponent } from './user-popup/user-popup.component';
 import { CreateuserPopupComponent } from './createuser-popup/createuser-popup.component';
 import {TokenInterceptorServiceService} from '../shared/service/token-interceptor-service.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -46,6 +51,13 @@ import {TokenInterceptorServiceService} from '../shared/service/token-intercepto
     MatDialogModule,
     MatStepperModule,
     MatButtonModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {

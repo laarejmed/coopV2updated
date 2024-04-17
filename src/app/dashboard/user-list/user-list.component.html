@@ -1,21 +1,20 @@
 <main id="main-container" style="width: calc(100vw - 245px);">
   <div class="container-fluid px-4">
-    <h1 class="mt-4">Usuarios</h1>
+    <h1 class="mt-4">{{ 'Usuarios' | translate }}</h1>
     <ol class="breadcrumb mb-4">
       <li class="breadcrumb-item active">Usuario</li>
     </ol>
     <a routerLink="/signup" style="margin-bottom:30px" class="btn btn-success">
-      Agregar una usuario
+      <li class="breadcrumb-item active">{{ 'Usuario' | translate }}</li>
     </a>
     <button (click)="openDialogUser()" style="margin-bottom:30px; margin-left:20px;" class=" btn btn-success">
-      Usuario sin validación
-
+      {{ 'Usuario sin validación' | translate }}
     </button>
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
       <div class="card mb-4">
         <div class="card-header">
           <i class="fas fa-table me-1"></i>
-          Listas de Usuarios
+          {{ 'Listas de Usuarios' | translate }}
         </div>
         <div class="card-body">
 
@@ -32,26 +31,24 @@
                   <i class="fa-regular fa-trash-can" style="margin: 0 10px; font-size: 20px; font-weight: 500; color: red"></i>
                 </button>
               </div>
-              <div class="dataTable-search"><input class="dataTable-input" (keyup)="searchItem($event)" placeholder="Búsqueda..." type="text"></div>
+              <div class="dataTable-search"><input class="dataTable-input" (keyup)="searchItem($event)" placeholder="{{ 'Búsqueda...' | translate }}" type="text"></div>
               <!--add import users-->
               <div class="dataTable-bottom">
                 <nav class="dataTable-pagination">
                   <ul class="dataTable-pagination-list">
 
                     <li class="">
-                      <a class="option-button" (click)="exportToExcel()">Exceller</a>
+                      <a class="option-button" (click)="exportToExcel()">{{ 'Excel' | translate }}</a>
                     </li>
                     <li class="">
-                      <a class="option-button" (click)="exportToPDF()">PDF</a>
+                      <a class="option-button" (click)="exportToPDF()">{{ 'PDF' | translate }}</a>
                     </li>
                     <li class="">
-                      <a class="option-button" (click)="exportToCSV()">CSV</a>
+                      <a class="option-button" (click)="exportToCSV()">{{ 'CSV' | translate }}</a>
                     </li>
                     <li class="">
-                      <a class="option-button" (click)="refresh()"><i class="fa fa-refresh" aria-hidden="true"></i> Actualizar</a>
+                      <a class="option-button" (click)="refresh()"><i class="fa fa-refresh" aria-hidden="true"></i> {{ 'Actualizar' | translate }}</a>
                     </li>
-
-
                   </ul>
                 </nav>
               </div>
@@ -62,13 +59,11 @@
               <thead>
                 <tr>
                   <th><input class="input-check-all" (change)="selectAll($event)" type="checkbox"></th>
-                  <th class="text-capitalize">Nombre</th>
-                  <th class="text-capitalize">Correo electrónico</th>
-                  <th class="text-capitalize">Número de Socio</th>
-                  <th class="text-capitalize">Estado</th>
-                  <!-- <th class="text-capitalize">Última vez que inició sesión</th> -->
-                  <th class="text-capitalize">Acción</th>
-                  
+                  <th class="text-capitalize">{{ 'Nombre' | translate }}</th>
+                  <th class="text-capitalize">{{ 'Correo electrónico' | translate }}</th>
+                  <th class="text-capitalize">{{ 'Número de Socio' | translate }}</th>
+                  <th class="text-capitalize">{{ 'Estado' | translate }}</th>
+                  <th class="text-capitalize">{{ 'Acción' | translate }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,19 +99,17 @@
             <nav class="dataTable-pagination">
               <ul class="dataTable-pagination-list">
                 <li class="pagination-items">
-                  <a style="cursor: pointer;" (click)="getItems(currentPage - 1)">Previa</a>
+                  <a style="cursor: pointer;" (click)="getItems(currentPage - 1)">{{ 'Previa' | translate }}</a>
                 </li>
                 <li *ngFor="let i of getDisplayedPageNumbers()" class="pagination-items">
                   <a style="cursor: pointer;" (click)="getItems(i)">{{i+1}}</a>
                 </li>
                 <li class="pagination-items">
-                  <a style="cursor: pointer;" (click)="getItems(currentPage + 1)">Próxima</a>
+                  <a style="cursor: pointer;" (click)="getItems(currentPage + 1)">{{ 'Próxima' | translate }}</a>
                 </li>
               </ul>
             </nav>
           </div>
-
-
         </div>
       </div>
     </div>
