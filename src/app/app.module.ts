@@ -52,7 +52,11 @@ export function HttpLoaderFactory(http: HttpClient){
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    HttpClientModule,
+    NgModule,
+    NgStyle,
+    FormsModule
   ],
   bootstrap: [AppComponent],
 })
