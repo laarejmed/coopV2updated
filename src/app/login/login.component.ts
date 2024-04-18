@@ -7,7 +7,7 @@ import {JwtServiceService} from '../shared/service/jwt-service.service';
 import {AutehentificationService} from '../shared/service/autehentification.service';
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl:'./login.compent.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {

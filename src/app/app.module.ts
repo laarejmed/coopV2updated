@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, Pipe} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {AppComponent} from './app.component'; 
+import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {LoginComponent} from './login/login.component';
@@ -19,6 +19,7 @@ import { NgStyle } from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { MatButtonModule } from '@angular/material/button';
+import { ItemsComponent } from './pages/application/example-items/items.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient){
     ResetPasswordComponent,
     ReceiptComponent,
     NotificationComponent,
+    ItemsComponent,
     ],
   imports: [
     BrowserModule,
@@ -42,7 +44,6 @@ export function HttpLoaderFactory(http: HttpClient){
    // DashboardModule,
     AppRoutingModule,
     Pipe,
-    NgStyle,
     NgModule,
     HttpClientModule,
     MatButtonModule,
@@ -55,7 +56,6 @@ export function HttpLoaderFactory(http: HttpClient){
     }),
     HttpClientModule,
     NgModule,
-    NgStyle,
     FormsModule
   ],
   bootstrap: [AppComponent],
